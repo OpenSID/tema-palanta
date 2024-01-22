@@ -2,15 +2,20 @@
     "name": "themes/palanta",
     "type": "library",
     "description": "Tema OpenSID",
-	"license": "GPL-3.0-or-later",
+    "license": "GPL-3.0-or-later",
     "keywords": [
-      "Themes",
-      "OpenSID"
+        "Themes",
+        "OpenSID"
     ],
     "authors": [
-      {
-        "name": "Dafris",
-        "email": "dafrissusandra@gmail.com"
-      }
-  ]
+        {
+            "name": "Dafris",
+            "email": "dafrissusandra@gmail.com"
+        }
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2402.x-dev"
+        }
+    }
 }
