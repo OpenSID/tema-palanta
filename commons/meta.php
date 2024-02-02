@@ -3,7 +3,7 @@
 <?php $nama_desa = ucwords($this->setting->sebutan_desa) .' '.ucwords($desa['nama_desa']) ?>
 <?php defined('NAMA_DESA') or define('NAMA_DESA', $nama_desa) ?>
 <?php defined('THEME_NAME') or define('THEME_NAME', 'Palanta') ?>
-<?php defined('THEME_VERSION') or define('THEME_VERSION', 'v1.0') ?>
+<?php defined('THEME_VERSION') or define('THEME_VERSION', 'v2402.0.0') ?>
 <?php $desa_title =  ucwords($this->setting->sebutan_desa) . ' '. $desa['nama_desa'] . ' '. ucwords($this->setting->sebutan_kecamatan) . ' '. $desa['nama_kecamatan'] . ' '. ucwords($this->setting->sebutan_kabupaten) . ' '. $desa['nama_kabupaten']; ?>
 
 <meta http-equiv="encoding" content="utf-8">
