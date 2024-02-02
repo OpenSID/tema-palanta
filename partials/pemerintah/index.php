@@ -27,16 +27,21 @@
 							<?php endif ?>
 						</div>
 					</div>
-					<br>
 					<?php if (count($media_sosial) > 0) : ?>
-						<?php  $sosmed_pengurus = json_decode($data['media_sosial'], true); ?>
-						<?php foreach ($media_sosial as $value): ?>
-							<?php if ($sosmed_pengurus[$value['id']]): ?>
-								<a href="<?= $sosmed_pengurus[$value['id']] ?>" target="_blank" class="inline-flex items-center justify-center bg-blue-600 h-8 w-8 rounded-full"><i class="fab fa-lg fa-<?=$value['id']?>" style="color: #fff;"></i></a>
-							<?php else : ?>
-								<span class="inline-flex items-center justify-center bg-blue-600 h-8 w-8 rounded-full"><i class="fab fa-lg fa-<?=$value['id']?>" style="color: #fff;"></i></span>
-							<?php endif ?>
-						<?php endforeach ?>
+						<div class="c-flex" style="margin:10px 0 0;width:100%;text-align:center;">
+							<?php  $sosmed_pengurus = json_decode($data['media_sosial'], true); ?>
+							<?php foreach ($media_sosial as $value): ?>
+								<div style="padding: 0 3px;">
+									<?php if ($sosmed_pengurus[$value['id']]): ?>
+										<a href="<?= $sosmed_pengurus[$value['id']] ?>" rel="noopener noreferrer" target="_blank">
+											<img src="<?= base_url("{$folder_themes}/assets/img/sosial_media/{$value['id']}.png") ?>" alt="<?= $value['id'] ?>" width="35px" height="35px"/>
+										</a>
+									<?php else : ?>
+										<img src="<?= base_url("{$folder_themes}/assets/img/sosial_media/{$value['id']}.png") ?>" alt="<?= $value['id'] ?>" width="35px" height="35px"/>
+									<?php endif ?>
+								</div>
+							<?php endforeach ?>
+						</div>
 					<?php endif ?>
 				</div>
 			</div>

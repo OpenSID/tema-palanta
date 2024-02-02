@@ -10,7 +10,8 @@
 		<?php foreach ($sosmed As $data): ?>
 			<?php if (!empty($data["link"])): ?>
 				<a href="<?= $data['link']?>" rel="noopener noreferrer" target="_blank">
-					<img src="<?= base_url().'assets/front/'.$data['gambar'] ?>" alt="<?= $data['nama'] ?>"/>
+					<?php $icon = strtolower($data['nama']) . '.png'; ?>
+					<img src="<?= base_url("{$folder_themes}/assets/img/sosial_media/{$icon}") ?>" alt="<?= $data['nama'] ?>"/>
 				</a>
 			<?php endif; ?>
 		<?php endforeach; ?>
