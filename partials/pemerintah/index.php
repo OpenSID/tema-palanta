@@ -13,21 +13,31 @@
 				<div class="box-def-inner">
 					<img style="width:100%;height:auto;" src="<?= AmbilFoto($data['foto'], '', $data['id_sex']) ?>" alt="Foto <? $data['nama'] ?>"/>
 					<div class="c-flex" style="margin:10px 0 0;width:100%;text-align:center;">
-					<div>
-						<h2><?= $data['nama'] ?></h2>
-						<p><?= $data['jabatan'] ?></p>
-					</div>
+						<div>
+							<h2><?= $data['nama'] ?></h2>
+							<p><?= $data['jabatan'] ?></p>
+						</div>
 					</div>
 					<div class="c-flex" style="margin:10px 0 0;width:100%;text-align:center;">
-					<div>
-						<?php if ($this->setting->tampilkan_kehadiran && $data['status_kehadiran'] == 'hadir') : ?>
-							<div class="btn btn-success btn-sm">Hadir</div>
-						<?php else: ?>
-							<div class="btn btn-danger btn-sm">Belum Hadir</div>
-						<?php endif ?>
+						<div>
+							<?php if ($this->setting->tampilkan_kehadiran && $data['status_kehadiran'] == 'hadir') : ?>
+								<div class="btn btn-success btn-sm">Hadir</div>
+							<?php else: ?>
+								<div class="btn btn-danger btn-sm">Belum Hadir</div>
+							<?php endif ?>
+						</div>
 					</div>
-					</div>
-					
+					<br>
+					<?php if (count($media_sosial) > 0) : ?>
+						<?php  $sosmed_pengurus = json_decode($data['media_sosial'], true); ?>
+						<?php foreach ($media_sosial as $value): ?>
+							<?php if ($sosmed_pengurus[$value['id']]): ?>
+								<a href="<?= $sosmed_pengurus[$value['id']] ?>" target="_blank" class="inline-flex items-center justify-center bg-blue-600 h-8 w-8 rounded-full"><i class="fab fa-lg fa-<?=$value['id']?>" style="color: #fff;"></i></a>
+							<?php else : ?>
+								<span class="inline-flex items-center justify-center bg-blue-600 h-8 w-8 rounded-full"><i class="fab fa-lg fa-<?=$value['id']?>" style="color: #fff;"></i></span>
+							<?php endif ?>
+						<?php endforeach ?>
+					<?php endif ?>
 				</div>
 			</div>
 		<?php endforeach ?>
