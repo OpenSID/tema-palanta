@@ -8,7 +8,7 @@
 				<img src="<?= gambar_desa($desa['logo']);?>"/>
 				<div>
 					<h1><?= ucwords($this->setting->sebutan_desa); ?> <?= ucwords(($desa['nama_desa']) ? ' ' . $desa['nama_desa'] : ''); ?></h1>
-					<p><?= ucwords($this->setting->sebutan_kecamatan_singkat." ".$desa['nama_kecamatan'])?>, <?= ucwords($this->setting->sebutan_kabupaten_singkat." ".$desa['nama_kabupaten'])?><br/><?= ucwords("Prov. ".$desa['nama_propinsi'])?></p>
+					<p><?= ucwords($this->setting->sebutan_kecamatan_singkat . " " . $desa['nama_kecamatan'])?>, <?= ucwords($this->setting->sebutan_kabupaten_singkat . " " . $desa['nama_kabupaten'])?><br/><?= ucwords("Prov. " . $desa['nama_propinsi'])?></p>
 				</div>
 			</div>
 			</a>
@@ -18,12 +18,12 @@
 				<div class="r-flex">
 					<?php if ($desa['telepon']): ?> 
 					<div class="top-contact l-flex">
-					<i class="fa fa-phone"></i><p><?= ucwords(" ".$desa['telepon'])?></p>
+					<i class="fa fa-phone"></i><p><?= ucwords(" " . $desa['telepon'])?></p>
 					</div>
 					<?php endif ?>
 					<?php if ($desa['email_desa']): ?>
 					<div class="top-contact l-flex">
-					<i class="fa fa-envelope"></i><p><?= ucwords(" ".$desa['email_desa'])?></p>
+					<i class="fa fa-envelope"></i><p><?= ucwords(" " . $desa['email_desa'])?></p>
 					</div>
 					<?php endif ?>
 				</div>
@@ -47,27 +47,17 @@
 		<div class="desk-v menuweb-container">
 		<nav class="menu">
 			<ul class="menuweb">
-			<li class="bghome" style="margin-left:-10px;padding:0 15px;font-size:140%;"><a href="<?= site_url(); ?>"><i class="fa fa-home"></i></a></li>
-			<?php foreach($menu_atas as $data) { ?>
-				<?php if(count($data['submenu'])>0): ?>
-					<li class="with-submenu"><a href="<?= $data['link']?>"><?= $data['nama']; if(count($data['submenu'])>0) { echo "<span class='caret'></span>"; } ?></a>
-						<ul class="submenu">
-							<?php foreach($data['submenu'] as $submenu): ?>
-								<li><a href="<?= $submenu['link']?>"><?= $submenu['nama']?></a></li>
-							<?php endforeach; ?>	
-						</ul>
-					</li>
-				<?php else: ?>
-					<li><a href="<?= $data['link']?>"><?= $data['nama']?></a></li>
-				<?php endif; ?>
-			<?php } ?>	
+				<li class="bghome" style="margin-left:-10px;padding:0 15px;font-size:140%;"><a href="<?= site_url(); ?>"><i class="fa fa-home"></i></a></li>
+				<?php foreach(menu_tema() as $data): ?>
+					<?php $this->load->view("$folder_themes/partials/sub_menu", ['data' => $data]); ?>
+				<?php endforeach; ?>
 			</ul>
 		</nav>
 		</div>
 		<?php if (!empty($teks_berjalan)): ?>
 		<div class="text-run">
 			<marquee onmouseover="this.stop()" onmouseout="this.start()">
-			<?php foreach ($teks_berjalan AS $teks): ?>
+			<?php foreach ($teks_berjalan as $teks): ?>
 				<span>
 					<?= $teks['teks']?>
 					<?php if ($teks['tautan']): ?>
@@ -101,10 +91,10 @@
 
 <script>
 	function menuOpen() {
-	  document.getElementById("openmenu").style.width = "100%";
+		document.getElementById("openmenu").style.width = "100%";
 	}
 	function menuClose() {
-	  document.getElementById("openmenu").style.width = "0";
+		document.getElementById("openmenu").style.width = "0";
 	}  
 </script>
 
