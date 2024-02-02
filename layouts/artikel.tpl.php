@@ -20,10 +20,10 @@
 							<?php $this->load->view("$folder_themes/partials/sidebar"); ?>
 						</div>
 					<?php elseif ($single_artikel['tampilan'] == 2): ?>
-						<div class="pageleft">
+						<div class="pageright">
 							<?php $this->load->view("$folder_themes/partials/sidebar"); ?>
 						</div>
-						<div class="pageright">
+						<div class="pageleft">
 							<?php $this->load->view("$folder_themes/partials/artikel"); ?>
 						</div>
 					<?php else : ?>
