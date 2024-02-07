@@ -1,13 +1,55 @@
+<style>
+.submenu {
+    height: max-content;
+}
+.submenu-link{
+    display: inline-flex;
+}
+.subsub-link{
+    display: grid;
+    padding-bottom: 10px;
+}
+</style>
 <?php if(count($data['childrens']) > 0): ?>
     <li class="with-submenu">
         <a href="<?= $data['link']?>"><?= $data['nama'];
             if(count($data['childrens'] ?? []) > 0): ?>
-                <span class='caret'></span>
+                <i class="fa fa-caret-down"></i>
             <?php endif; ?>
         </a>
         <ul class="submenu">
             <?php foreach($data['childrens'] as $submenu): ?>
-                <?php $this->load->view("$folder_themes/partials/sub_menu", ['data' => $submenu]); ?>
+                <?php if(count($submenu['childrens']) > 0): ?>
+                    <li class="with-submenu">
+                        <a href="<?= $submenu['link']?>"><?= $submenu['nama'];
+                        if(count($submenu['childrens'] ?? []) > 0): ?>
+                            <i class="fa fa-caret-down"></i>
+                        <?php endif; ?>
+                        </a>
+                        <ul class="">
+                            <?php foreach($submenu['childrens'] as $submenub): ?>
+                                <?php if(count($submenub['childrens']) > 0): ?>
+                                    <li class="with-submenu submenu-link">
+                                        <a href="<?= $submenub['link']?>"><?= $submenub['nama'];
+                                        if(count($submenub['childrens'] ?? []) > 0): ?>
+                                            <i class="fa fa-caret-right"></i>
+                                        <?php endif; ?>
+                                        </a>
+                                        <ul class="">
+                                            <?php foreach($submenub['childrens'] as $submenubb): ?>
+                                                <li class="subsub-link"><a href="<?= $submenubb['link']?>"><?= $submenubb['nama']?></a></li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    </li>
+                                <?php else: ?>
+                                    <li class="submenu-link"><a href="<?= $submenub['link']?>"><?= $submenub['nama']?></a></li>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </ul>
+                    </li>
+                <?php else: ?>
+                    <li class="submenu-link"><a href="<?= $submenu['link']?>"><?= $submenu['nama']?></a></li>
+                <?php endif; ?>
             <?php endforeach; ?>
         </ul>
     </li>
