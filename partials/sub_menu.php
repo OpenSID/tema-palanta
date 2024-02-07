@@ -1,14 +1,18 @@
 <style>
 .submenu {
     height: max-content;
+    width: max-content;
 }
 .submenu-link{
     display: inline-flex;
 }
-.subsub-link{
-    display: grid;
-    padding-bottom: 10px;
+.subsub-link>a{
+    padding: 8px;
 }
+.subsub-link {
+    display: none;
+}
+
 </style>
 <?php if(count($data['childrens']) > 0): ?>
     <li class="with-submenu">
@@ -20,7 +24,7 @@
         <ul class="submenu">
             <?php foreach($data['childrens'] as $submenu): ?>
                 <?php if(count($submenu['childrens']) > 0): ?>
-                    <li class="with-submenu">
+                    <li class="submenu-link">
                         <a href="<?= $submenu['link']?>"><?= $submenu['nama'];
                         if(count($submenu['childrens'] ?? []) > 0): ?>
                             <i class="fa fa-caret-down"></i>
@@ -29,10 +33,10 @@
                         <ul class="">
                             <?php foreach($submenu['childrens'] as $submenub): ?>
                                 <?php if(count($submenub['childrens']) > 0): ?>
-                                    <li class="with-submenu submenu-link">
+                                    <li class="with-submenu subsub-link">
                                         <a href="<?= $submenub['link']?>"><?= $submenub['nama'];
                                         if(count($submenub['childrens'] ?? []) > 0): ?>
-                                            <i class="fa fa-caret-right"></i>
+                                            <i class="fa fa-caret-down"></i>
                                         <?php endif; ?>
                                         </a>
                                         <ul class="">
@@ -42,7 +46,7 @@
                                         </ul>
                                     </li>
                                 <?php else: ?>
-                                    <li class="submenu-link"><a href="<?= $submenub['link']?>"><?= $submenub['nama']?></a></li>
+                                    <li class="subsub-link"><a href="<?= $submenub['link']?>"><?= $submenub['nama']?></a></li>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </ul>
@@ -56,3 +60,12 @@
 <?php else: ?>
     <li><a href="<?= $data['link']?>"><?= $data['nama']?></a></li>
 <?php endif; ?>
+<script>
+$(document).ready(function() {
+    $(".submenu-link").hover(function() {
+        $(".subsub-link").css("display", "grid");
+    }, function() {
+        $(".subsub-link").css("display", "none");
+    });
+});
+</script>
