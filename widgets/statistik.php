@@ -33,7 +33,7 @@
 							categories:
 							[
 							<?php foreach($stat_widget as $data): ?>
-								<?php if ($data['jumlah'] != "-" AND $data['nama']!= "JUMLAH"): ?>
+								<?php if ($data['jumlah'] > 0 AND $data['nama']!= "JUMLAH"): ?>
 									['<?= $data['jumlah']?> <br> <?= $data['nama']?>'],
 								<?php endif; ?>
 							<?php endforeach; ?>
@@ -56,7 +56,7 @@
 							name: 'Populasi',
 							data: [
 							<?php foreach ($stat_widget as $data): ?>
-								<?php if ($data['jumlah'] != "-" AND $data['nama']!= "JUMLAH"): ?>
+								<?php if ($data['jumlah'] > 0 AND $data['nama']!= "JUMLAH"): ?>
 									['<?= $data['nama']?>',<?= $data['jumlah']?>],
 								<?php endif; ?>
 							<?php endforeach; ?>
