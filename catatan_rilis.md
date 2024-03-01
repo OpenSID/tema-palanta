@@ -1,7 +1,5 @@
-Catatan Rilis Tema Palanta v2402.0.1 :
+Catatan Rilis Tema Planta v2403.0.0 :
 
-### FITUR
+BUG :
 
-
-### BUG 
-1. Perbaikan penerapan menu bertingkat.
+Perbaikan detail data pada halaman statistik.
