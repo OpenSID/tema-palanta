@@ -1,5 +1,5 @@
-Catatan Rilis Tema Planta v2403.0.0 :
+Catatan Rilis v2403.0.1 :
 
 BUG :
 
-Perbaikan detail data pada halaman statistik.
+1. 
