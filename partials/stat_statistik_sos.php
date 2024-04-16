@@ -113,7 +113,7 @@
 						<td>".$data['nama']."</td>
 						<td class=\"angka\">".$data['jumlah']."</td>
 					</tr>";
-					$i=$i+$data['jumlah'];
+					$i += $data['jumlah'];
 				}
 				echo "
 				</tbody>

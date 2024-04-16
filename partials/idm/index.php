@@ -127,7 +127,9 @@
 									</thead>
 									<tbody>
 										<?php foreach ($idm->ROW as $data): ?>
-											<tr class="<?php empty($data->NO) && print 'judul'; ?> ">
+											<tr class="<?php if (empty($data->NO)) {
+												print 'judul';
+											} ?> ">
 												<td class="text-center"><?= $data->NO ?></td>
 												<td style="min-width: 150px;"><?= $data->INDIKATOR ?></td>
 												<td class="padat"><?= $data->SKOR ?></td>

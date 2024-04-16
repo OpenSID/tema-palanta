@@ -1,4 +1,4 @@
-<?php if(!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') || exit('No direct script access allowed'); ?>
 
 <div class="slider-area">
 	<div class="carousel js-flickity" data-flickity='{ "autoPlay": true, "cellAlign": "left", "fade": "true" }'>

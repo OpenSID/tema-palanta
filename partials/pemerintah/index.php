@@ -27,7 +27,7 @@
 							<?php endif ?>
 						</div>
 					</div>
-					<?php if (count($media_sosial) > 0) : ?>
+					<?php if (count($media_sosial ?? []) > 0) : ?>
 						<div class="c-flex" style="margin:10px 0 0;width:100%;text-align:center;">
 							<?php  $sosmed_pengurus = json_decode($data['media_sosial'], true); ?>
 							<?php foreach ($media_sosial as $value): ?>

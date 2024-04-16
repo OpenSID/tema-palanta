@@ -3,7 +3,7 @@
 <div class="container-custom">
 	<div class="box-def">
 		<div class="bottom-area">
-					<?php if($transparansi) $this->load->view($folder_themes .'/partials/apbd_footer', $transparansi) ?>	
+			<?php if($transparansi) $this->load->view($folder_themes .'/partials/apbd_footer', $transparansi) ?>	
 		</div>
 	</div>
 </div>

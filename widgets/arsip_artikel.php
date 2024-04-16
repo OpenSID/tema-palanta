@@ -18,14 +18,14 @@
 			</ul>
 			<div class="content2">
 				<section>
-					<?php foreach (array('populer' => 'arsip_populer') as $jenis => $jenis_arsip) : ?>
-					<?php foreach ($$jenis_arsip as $arsip): ?>
+					<?php foreach (['populer' => 'arsip_populer'] as $jenis => $jenis_arsip) : ?>
+					<?php foreach (${$jenis_arsip} as $arsip): ?>
 						<a href="<?= site_url('artikel/'.buat_slug($arsip))?>">
 						<div class="row-custom row-arsip mlr-min5">
 							<div class="arsip-image">
 								<div class="image-arsip">
-								<?php if (is_file(LOKASI_FOTO_ARTIKEL.'sedang_'.$arsip[gambar])): ?>
-									<img src="<?= base_url(LOKASI_FOTO_ARTIKEL.'sedang_'.$arsip[gambar])?>"/>
+								<?php if (is_file(LOKASI_FOTO_ARTIKEL.'sedang_'.$arsip['gambar'])): ?>
+									<img src="<?= base_url(LOKASI_FOTO_ARTIKEL.'sedang_'.$arsip['gambar'])?>"/>
 								<?php else: ?>
 									<img src="<?= base_url("$this->theme_folder/$this->theme/images/pengganti.jpg") ?>"/>
 									<div class="small-image"><img src="<?= gambar_desa($desa['logo']);?>"/></div>
@@ -41,14 +41,14 @@
 					<?php endforeach ?>	
 				</section>
 				<section>
-					<?php foreach (array('terkini' => 'arsip_terkini') as $jenis => $jenis_arsip) : ?>
-					<?php foreach ($$jenis_arsip as $arsip): ?>
+					<?php foreach (['terkini' => 'arsip_terkini'] as $jenis => $jenis_arsip) : ?>
+					<?php foreach (${$jenis_arsip} as $arsip): ?>
 						<a href="<?= site_url('artikel/'.buat_slug($arsip))?>">
 						<div class="row-custom row-arsip mlr-min5">
 							<div class="arsip-image">
 								<div class="image-arsip">
-								<?php if (is_file(LOKASI_FOTO_ARTIKEL.'sedang_'.$arsip[gambar])): ?>
-									<img src="<?= base_url(LOKASI_FOTO_ARTIKEL.'sedang_'.$arsip[gambar])?>"/>
+								<?php if (is_file(LOKASI_FOTO_ARTIKEL.'sedang_'.$arsip['gambar'])): ?>
+									<img src="<?= base_url(LOKASI_FOTO_ARTIKEL.'sedang_'.$arsip['gambar'])?>"/>
 								<?php else: ?>
 									<img src="<?= base_url("$this->theme_folder/$this->theme/images/pengganti.jpg") ?>"/>
 									<div class="small-image"><img src="<?= gambar_desa($desa['logo']);?>"/></div>
@@ -64,14 +64,14 @@
 					<?php endforeach ?>	
 				</section>
 				<section>
-					<?php foreach (array('acak' => 'arsip_acak') as $jenis => $jenis_arsip) : ?>
-					<?php foreach ($$jenis_arsip as $arsip): ?>
+					<?php foreach (['acak' => 'arsip_acak'] as $jenis_arsip) : ?>
+					<?php foreach (${$jenis_arsip} as $arsip): ?>
 						<a href="<?= site_url('artikel/'.buat_slug($arsip))?>">
 						<div class="row-custom row-arsip mlr-min5">
 							<div class="arsip-image">
 								<div class="image-arsip">
-								<?php if (is_file(LOKASI_FOTO_ARTIKEL.'sedang_'.$arsip[gambar])): ?>
-									<img src="<?= base_url(LOKASI_FOTO_ARTIKEL.'sedang_'.$arsip[gambar])?>"/>
+								<?php if (is_file(LOKASI_FOTO_ARTIKEL.'sedang_'.$arsip['gambar'])): ?>
+									<img src="<?= base_url(LOKASI_FOTO_ARTIKEL.'sedang_'.$arsip['gambar'])?>"/>
 								<?php else: ?>
 									<img src="<?= base_url("$this->theme_folder/$this->theme/images/pengganti.jpg") ?>"/>
 									<div class="small-image"><img src="<?= gambar_desa($desa['logo']);?>"/></div>

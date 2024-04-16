@@ -12,7 +12,7 @@
 
 	<div class="box-body">
 		<div class="table-responsive">
-		<?php if(count($daftar_dusun) > 0) : ?>
+		<?php if(count($daftar_dusun ?? []) > 0) : ?>
 			<table class="table table-striped table-bordered">
 				<thead>
 					<tr>

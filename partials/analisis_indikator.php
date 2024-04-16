@@ -6,7 +6,7 @@
 
 <div style="margin:0 0 20px;">
 <?php if ($list_indikator): ?>
-	<?php if (count($master_indikator) > 1) : ?>
+	<?php if (count($master_indikator ?? []) > 1) : ?>
 		<form action="<?=site_url('data_analisis'); ?>" method="get">
 			<div class="row" style="margin-bottom: 20px;">
 				<label class="col-md-3 custom-label">Analisis: </label>

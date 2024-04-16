@@ -17,7 +17,9 @@
 				</li>
             <?php endif; ?>
 			<?php for ($i=$paging->start_link; $i<=$paging->end_link; $i++): ?>
-                <li class="page-item <?php ($paging->page != $i) or print('active'); ?>">
+                <li class="page-item <?php if ($paging->page == $i) {
+					print('active');
+				} ?>">
 				<a class="page-link" href="<?=site_url("$paging_page/$i" . $paging->suffix); ?>" title="<?= 'Halaman ' . $i ?>"><?= $i ?></a>
 				</li>
             <?php endfor; ?>

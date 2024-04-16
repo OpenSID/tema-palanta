@@ -4,7 +4,7 @@
 	<div class="box-def hoverstyle">
 		<div class="box-def-inner">
 			<div class="artike-page">
-				<?php if (trim($single_artikel['kategori']) != '') : ?>
+				<?php if (trim($single_artikel['kategori']) !== '') : ?>
 				<div class="bigmeta">
 				<div class="artikel-meta">
 					<div class="meta-item l-flex"><i class="fa fa-edit"></i><p><?= $single_artikel['kategori'] ?></p></div>
@@ -20,16 +20,16 @@
 				<div class="artikel-image-page">
 					<div class="image-column">
 						
-						<?php if ($single_artikel['gambar'] != '' and is_file(LOKASI_FOTO_ARTIKEL . "sedang_" . $single_artikel['gambar'])) : ?>
+						<?php if ($single_artikel['gambar'] != '' && is_file(LOKASI_FOTO_ARTIKEL . "sedang_" . $single_artikel['gambar'])) : ?>
 							<a data-fancybox="gallery" href="<?= AmbilFotoArtikel($single_artikel['gambar'], 'sedang') ?>"><img src="<?= AmbilFotoArtikel($single_artikel['gambar'], 'sedang') ?>" /></a>
 						<?php endif ?>
-						<?php if ($single_artikel['gambar1'] != '' and is_file(LOKASI_FOTO_ARTIKEL . "sedang_" . $single_artikel['gambar1'])) : ?>
+						<?php if ($single_artikel['gambar1'] != '' && is_file(LOKASI_FOTO_ARTIKEL . "sedang_" . $single_artikel['gambar1'])) : ?>
 							<a data-fancybox="gallery" href="<?= AmbilFotoArtikel($single_artikel['gambar1'], 'sedang') ?>"><img src="<?= AmbilFotoArtikel($single_artikel['gambar1'], 'sedang') ?>" /></a>
 						<?php endif ?>
-						<?php if ($single_artikel['gambar2'] != '' and is_file(LOKASI_FOTO_ARTIKEL . "sedang_" . $single_artikel['gambar2'])) : ?>
+						<?php if ($single_artikel['gambar2'] != '' && is_file(LOKASI_FOTO_ARTIKEL . "sedang_" . $single_artikel['gambar2'])) : ?>
 							<a data-fancybox="gallery" href="<?= AmbilFotoArtikel($single_artikel['gambar2'], 'sedang') ?>"><img src="<?= AmbilFotoArtikel($single_artikel['gambar2'], 'sedang') ?>" /></a>
 						<?php endif ?>
-						<?php if ($single_artikel['gambar3'] != '' and is_file(LOKASI_FOTO_ARTIKEL . "sedang_" . $single_artikel['gambar3'])) : ?>
+						<?php if ($single_artikel['gambar3'] != '' && is_file(LOKASI_FOTO_ARTIKEL . "sedang_" . $single_artikel['gambar3'])) : ?>
 							<a data-fancybox="gallery" href="<?= AmbilFotoArtikel($single_artikel['gambar3'], 'sedang') ?>"><img src="<?= AmbilFotoArtikel($single_artikel['gambar3'], 'sedang') ?>" /></a>
 						<?php endif ?>
 					</div>
@@ -49,7 +49,7 @@
 						</tr>
 					</table>	
 				<?php endif ?>
-				<?php if ($single_artikel['dokumen'] != '' and is_file(LOKASI_DOKUMEN . $single_artikel['dokumen'])) : ?>
+				<?php if ($single_artikel['dokumen'] != '' && is_file(LOKASI_DOKUMEN . $single_artikel['dokumen'])) : ?>
 					<div class="c-flex" style="margin-bottom:15px;">
 					<p>Unduh Lampiran: <a href='<?= site_url("first/unduh_dokumen_artikel/{$single_artikel['id']}") ?>' title=""><b><?= $single_artikel['link_dokumen'] ?></b></a></p>
 					</div>

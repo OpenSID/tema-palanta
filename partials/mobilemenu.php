@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') || exit('No direct script access allowed'); ?>
 
 <div class="mobilemenu-container">
 		<div class="withscroll">
@@ -14,9 +14,9 @@
 					<ul style="font-size:16px !important;" >
 						<li><a href="<?= site_url(); ?>">Beranda</a></li>
 						<?php foreach($menu_atas as $data) { ?>
-						<?php if(count($data['submenu'])>0): ?>
+						<?php if(count($data['submenu'] ?? [])>0): ?>
 						<li class="dropdown" style="font-size:16px !important;">
-							<a style="font-size:16px !important;" href="<?= $data['link']?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><?= $data['nama']; if(count($data['submenu'])>0) { echo "<span class='caret'></span>"; } ?></a>
+							<a style="font-size:16px !important;" href="<?= $data['link']?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><?= $data['nama']; if(count($data['submenu'] ?? [])>0) { echo "<span class='caret'></span>"; } ?></a>
 							<ul class="dropdown-menu" style="background:rgba(0,0,0,0.2);margin-top:10px;padding:15px 20px 8px;font-size:16px !important;">
 							<?php foreach($data['submenu'] as $submenu): ?>
 								<a style="font-size:16px !important;" href="<?= $submenu['link']?>"><p style="font-size:16px !important;"><?= $submenu['nama']?></p></a>
