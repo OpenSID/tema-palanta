@@ -7,11 +7,12 @@
 		</div>
 	</div>
 	<div class="widgetbox widget-social c-flex">
-		<?php foreach ($sosmed As $data): ?>
+		<?php foreach ($sosmed as $data): ?>
 			<?php if (!empty($data["link"])): ?>
 				<a href="<?= $data['link']?>" rel="noopener noreferrer" target="_blank">
 					<?php $icon = strtolower($data['nama']) . '.png'; ?>
 					<img src="<?= base_url("{$folder_themes}/assets/img/sosial_media/{$icon}") ?>" alt="<?= $data['nama'] ?>"/>
+					<img src="<?= $data['icon'] ?>" alt="<?= $data['nama'] ?>" style="width:50px;height:50px;" />
 				</a>
 			<?php endif; ?>
 		<?php endforeach; ?>
