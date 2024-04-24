@@ -9,8 +9,10 @@
 	<div class="widgetbox widget-cat">
 		<ul id="ul-menu">
 		<?php foreach($menu_kiri as $data):?>
-			<li><a href="<?= site_url("artikel/kategori/$data[slug]"); ?>"><?= $data['kategori']; ?><?php (count($data['submenu'])>0) and print('<span class="caret"></span>'); ?></a>
-			<?php if(count($data['submenu'])>0): ?>
+			<li><a href="<?= site_url("artikel/kategori/$data[slug]"); ?>"><?= $data['kategori']; ?><?php if (count($data['submenu'] ?? [])>0) {
+    print('<span class="caret"></span>');
+} ?></a>
+			<?php if(count($data['submenu'] ?? [])>0): ?>
 			<ul>
 				<?php foreach($data['submenu'] as $submenu):?>
 					<li><a href="<?= site_url("artikel/kategori/$submenu[slug]"); ?>"><?= $submenu['kategori']?></a></li>

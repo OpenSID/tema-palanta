@@ -14,7 +14,7 @@
 }
 
 </style>
-<?php if(count($data['childrens']) > 0): ?>
+<?php if(count($data['childrens'] ?? []) > 0): ?>
     <li class="with-submenu">
         <a href="<?= $data['link']?>"><?= $data['nama'];
             if(count($data['childrens'] ?? []) > 0): ?>
@@ -23,7 +23,7 @@
         </a>
         <ul class="submenu">
             <?php foreach($data['childrens'] as $submenu): ?>
-                <?php if(count($submenu['childrens']) > 0): ?>
+                <?php if(count($submenu['childrens'] ?? []) > 0): ?>
                     <li class="submenu-link">
                         <a href="<?= $submenu['link']?>"><?= $submenu['nama'];
                         if(count($submenu['childrens'] ?? []) > 0): ?>
@@ -32,7 +32,7 @@
                         </a>
                         <ul class="">
                             <?php foreach($submenu['childrens'] as $submenub): ?>
-                                <?php if(count($submenub['childrens']) > 0): ?>
+                                <?php if(count($submenub['childrens'] ?? []) > 0): ?>
                                     <li class="with-submenu subsub-link">
                                         <a href="<?= $submenub['link']?>"><?= $submenub['nama'];
                                         if(count($submenub['childrens'] ?? []) > 0): ?>

@@ -16,8 +16,8 @@
 			</ul>
 			<div class="content3">
 				<section>
-					<?php if (count(array_merge($hari_ini, $yad)) > 0): ?>
-						<?php if (count($hari_ini) > 0): ?>
+					<?php if (array_merge($hari_ini, $yad) !== []): ?>
+						<?php if (count($hari_ini ?? []) > 0): ?>
 							<?php foreach ($hari_ini as $agenda): ?>
 								<table width="100%" class="tableagenda">
 									<tr>
@@ -35,7 +35,7 @@
 								</table>
 							<?php endforeach; ?>
 						<?php endif; ?>	
-						<?php if (count($yad) > 0): ?>
+						<?php if (count($yad ?? []) > 0): ?>
 							<?php foreach ($yad as $agenda): ?>
 								<table width="100%" class="tableagenda">
 									<tr>
@@ -58,7 +58,7 @@
 					<?php endif ?>	
 				</section>
 				<section>
-					<?php if (count($lama) > 0): ?>
+					<?php if (count($lama ?? []) > 0): ?>
 						<?php foreach ($lama as $agenda): ?>
 							<table width="100%" class="tableagenda">
 								<tr>

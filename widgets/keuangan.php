@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') || exit('No direct script access allowed'); ?>
 
 <?php if (!empty($widget_keuangan['tahun']) && null !== $widget_keuangan['tahun']) : ?>
 

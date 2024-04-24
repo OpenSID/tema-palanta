@@ -6,7 +6,7 @@
 			<i class="fa fa-folder-open"></i><h1>Arsip Konten</h1>
 		</div>
 	</div>
-	<?php if(count($farsip)>0): ?>
+	<?php if(count($farsip ?? [])>0): ?>
 		<div class="table-responsive">
 		<table class="table table-striped">
 			<tbody>
