@@ -117,7 +117,7 @@
 			let posisi = [link.data('lat'), link.data('lng')];
 			let zoom = link.data('zoom');
 			let logo = L.icon({
-				iconUrl: "<?= base_url('assets/images/gis/point/fastfood.png'); ?>",
+				iconUrl: "<?= setting('icon_lapak_peta') ?>",
 			});
 			
 			$("#lat").val(link.data('lat'));

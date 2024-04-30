@@ -1,5 +1,4 @@
-Catatan Rilis v2403.0.1 :
+Catatan Rilis v2405.0.0 :
 
-BUG :
-
-1. 
+### TEKNIS :
+1. Penyesuaian icon lokasi pelapak sesuai pengaturan.
