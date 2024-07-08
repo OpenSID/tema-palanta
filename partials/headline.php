@@ -9,7 +9,7 @@
 				<?php if (is_file(LOKASI_FOTO_ARTIKEL."sedang_".$headline['gambar'])): ?>
 					<img src="<?= AmbilFotoArtikel($headline['gambar'],'sedang') ?>">
 				<?php else: ?>
-					<img src="<?= base_url("$this->theme_folder/$this->theme/images/pengganti.jpg") ?>"/>
+					<img src="<?= theme_asset("images/noimage.png") ?>"/>
 					<div class="small-image"><img src="<?= gambar_desa($desa['logo']);?>"/></div>
 				<?php endif; ?>
 				</div>
