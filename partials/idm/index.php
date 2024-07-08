@@ -1,13 +1,35 @@
-<?php defined('BASEPATH') || exit('No direct script access allowed'); ?>
+<link rel="stylesheet" href="<?= asset('css/AdminLTE.css') ?>" />
+<!-- Font Awesome -->
+<link rel="stylesheet" href="<?= asset('bootstrap/css/font-awesome.min.css') ?>">
+<!-- Ionicons -->
+<link rel="stylesheet" href="<?= asset('bootstrap/css/ionicons.min.css') ?>">
+<?php if (is_file($this->theme_folder . '/' . $this->theme . '/css/first.css')): ?>
+	<link rel="stylesheet" href="<?= base_url("{$this->theme_folder}/{$this->theme}/css/first.css") ?>" />
+<?php endif; ?>
+<?php if (is_file($this->theme_folder . '/' . $this->theme . '/assets/css/desa-web.css')): ?>
+	<link type='text/css' href="<?= theme_asset("css/desa-web.css") ?>" rel='stylesheet' />
+<?php endif; ?>
+<?php if (is_file('desa/css/' . $this->theme . '/desa-web.css')): ?>
+	<link type='text/css' href="<?= base_url("desa/css/{$this->theme}/desa-web.css") ?>" rel='Stylesheet' />
+<?php endif; ?>
+<style>
+    .small-box .icon {
+        top: -15px;
+        font-size: 85px;
+    }
+</style>
 
-<div class="box-def">
-	<div class="box-def-inner">
-		<div class="heading-module l-flex">
-			<div class="heading-module-inner l-flex">
-				<i class="fa fa-cog"></i><h1>Indek Desa Membangun</h1>
-			</div>
-		</div>
-	
+<div class="content-wrapper">
+	<?php if (empty($halaman_statis)): ?>
+	<section class="content-header">
+			<h1>Status IDM <?= ucwords($this->setting->sebutan_desa) . ' ' . $tahun; ?></h1>
+			<ol class="breadcrumb">
+				<li><a href="<?= site_url('beranda')?>"><i class="fa fa-home"></i> Beranda</a></li>
+				<li class="active">Status IDM <?= ucwords($this->setting->sebutan_desa); ?></li>
+			</ol>
+		</section>
+	<?php endif; ?>
+	<section class="content" id="maincontent">
 		<div class="box box-info">
 			<div class="box-body">
 				<?php if ($idm->error_msg): ?>
@@ -16,46 +38,54 @@
 					</div>
 				<?php else: ?>
 					<div class="row">
-						<div class="col-lg-12 col-xs-12">
+						<div class="col-lg-6 col-xs-12">
 							<div class="row">
-								<div class="col-lg-3 col-xs-6">
-									<div class="idm-box bg-blue l-flex">
-										<div>
+								<div class="col-lg-6 col-xs-12">
+									<div class="small-box bg-blue">
+										<div class="inner">
 											<h3><?= number_format($idm->SUMMARIES->SKOR_SAAT_INI, 4) ?></h3>
 											<p>SKOR IDM SAAT INI</p>
 										</div>
-										<i class="fa fa-line-chart"></i>
+										<div class="icon">
+											<i class="ion ion-stats-bars"></i>
+										</div>
 									</div>
 								</div>
-								<div class="col-lg-3 col-xs-6">
-									<div class="idm-box bg-yellow l-flex">
-										<div>
+								<div class="col-lg-6 col-xs-12">
+									<div class="small-box bg-yellow">
+										<div class="inner">
 											<h3><?= $idm->SUMMARIES->STATUS ?></h3>
 											<p>STATUS IDM</p>
 										</div>
-										<i class="fa fa-warning"></i>
+										<div class="icon">
+											<i class="ion-ios-pulse-strong"></i>
+										</div>
 									</div>
 								</div>
-								<div class="col-lg-3 col-xs-6">
-									<div class="idm-box bg-red l-flex">
-										<div>
+								<div class="col-lg-6 col-xs-12">
+									<div class="small-box bg-red">
+										<div class="inner">
 											<h3><?= number_format($idm->SUMMARIES->SKOR_MINIMAL, 4) ?></h2>
 											<p>SKOR IDM MINIMAL</p>
 										</div>
-										<i class="fa fa-minus-square"></i>
+										<div class="icon">
+											<i class="ion ion-ios-pie"></i>
+										</div>
 									</div>
 								</div>
-								<div class="col-lg-3 col-xs-6">
-									<div class="idm-box bg-green l-flex">
-										<div>
+								<div class="col-lg-6 col-xs-12">
+									<div class="small-box bg-green">
+										<div class="inner">
 											<h3><?= $idm->SUMMARIES->TARGET_STATUS ?></h3>
 											<p>TARGET STATUS</p>
 										</div>
-										<i class="fa fa-tachometer"></i>
+										<div class="icon">
+											<i class="ion ion-arrow-graph-up-right"></i>
+										</div>
 									</div>
 								</div>
 
-								<div class="col-lg-12 col-xs-12" style="margin-bottom:20px;">
+								<div class="col-lg-12 col-xs-12">
 									<div class="table-responsive">
 										<table class="table table-bordered table-striped dataTable table-hover">
 											<tbody>
@@ -86,7 +116,7 @@
 							</div>
 						</div>
 
-						<div class="col-lg-12 col-xs-12">
+						<div class="col-lg-6 col-xs-12">
 							<figure class="highcharts-figure">
 								<div id="container"></div>
 							</figure>
@@ -127,9 +157,7 @@
 									</thead>
 									<tbody>
 										<?php foreach ($idm->ROW as $data): ?>
-											<tr class="<?php if (empty($data->NO)) {
-												print 'judul';
-											} ?> ">
+											<tr class="<?php empty($data->NO) && print 'judul'; ?> ">
 												<td class="text-center"><?= $data->NO ?></td>
 												<td style="min-width: 150px;"><?= $data->INDIKATOR ?></td>
 												<td class="padat"><?= $data->SKOR ?></td>
@@ -141,7 +169,7 @@
 												<td><?= $data->KAB ?></td>
 												<td><?= $data->DESA ?></td>
 												<td><?= $data->CSR ?></td>
-												<td><?= $data->SKOR[INDIKATOR['IKS 2020']] ?></td>
+												<td><?= $data->LAINNYA ?></td>
 											</tr>
 										<?php endforeach; ?>
 									</tbody>
@@ -152,7 +180,7 @@
 				<?php endif; ?>
 			</div>
 		</div>
-	</div>	
+	</section>
 </div>
 
 <?php if (! $idm->error_msg): ?>
