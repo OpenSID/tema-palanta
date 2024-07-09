@@ -11,9 +11,6 @@
 	<header id="header">
 		<?php theme_view("partials/header"); ?>
 	</header>
-	<div id="navarea">
-		<?php theme_view("partials/menu_head"); ?>
-	</div>
 	<div class="row">
 		<section>
 			<div class="content_bottom">
@@ -25,8 +22,7 @@
 	</div>
 </div>
 <footer id="footer">
-	<?php theme_view("partials/footer_top"); ?>
-	<?php theme_view("partials/footer_bottom"); ?>
+	<?php theme_view("commons/footer"); ?>
 </footer>
 <?php theme_view("commons/meta_footer"); ?>
 </body>
