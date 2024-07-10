@@ -28,7 +28,7 @@
 		</div>
 		<?php
 		$data['paging_page'] = 'first/arsip';
-		$this->load->view("$folder_themes/commons/pagination", $data);
+		theme_view("commons/pagination", $data);
 		?>
 	<?php else: ?>
 		Belum ada arsip konten web.

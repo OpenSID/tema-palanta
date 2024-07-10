@@ -77,7 +77,7 @@
 				<?php endforeach; ?>
 			</div>
 			
-			<?php $this->load->view("$folder_themes/commons/pagination"); ?>
+			<?php theme_view("commons/pagination"); ?>
 
 			<div class='modal fade' id="map-modal" tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
 				<div class='modal-dialog'>

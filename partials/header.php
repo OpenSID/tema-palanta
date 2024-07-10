@@ -49,7 +49,7 @@
 			<ul class="menuweb">
 				<li class="bghome" style="margin-left:-10px;padding:0 15px;font-size:140%;"><a href="<?= site_url(); ?>"><i class="fa fa-home"></i></a></li>
 				<?php foreach(menu_tema() as $data): ?>
-					<?php $this->load->view("$folder_themes/partials/sub_menu", ['data' => $data]); ?>
+					<?php theme_view("partials/sub_menu", ['data' => $data]); ?>
 				<?php endforeach; ?>
 			</ul>
 		</nav>
@@ -80,7 +80,7 @@
 </div>
 <div id="openmenu" class="menupanel">
 	<div class="menupanel-inner">
-		<?php $this->load->view("$folder_themes/partials/mobilemenu"); ?>
+		<?php theme_view("partials/mobilemenu"); ?>
 		<a href="javascript:void(0)" onclick="menuClose()">
 		<div class="close-menu c-flex">
 			<svg viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>

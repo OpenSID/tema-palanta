@@ -4,11 +4,11 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <?php $this->load->view("$folder_themes/commons/meta"); ?>
+    <?php theme_view("commons/meta"); ?>
 </head>
 <body>
 	<div class="pagelayout">
-		<?php $this->load->view("$folder_themes/partials/header"); ?>
+		<?php theme_view("partials/header"); ?>
 		<div class="default-row mt-20">
 			<div class="container-custom">
 				<div class="row-custom mlr-min-20">
@@ -27,13 +27,13 @@
 						?>
 					</div>
 					<div class="pageright">
-					<?php $this->load->view("$folder_themes/partials/sidebar"); ?>
+					<?php theme_view("partials/sidebar"); ?>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>	
-	<?php $this->load->view("$folder_themes/commons/footer"); ?>
+	<?php theme_view("commons/footer"); ?>
 </body>
 </html>
 

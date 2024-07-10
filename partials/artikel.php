@@ -76,7 +76,7 @@
 					'link' => site_url('artikel/' . buat_slug($single_artikel)),
 					'judul' => htmlspecialchars($single_artikel["judul"]),
 				];
-				$this->load->view("$folder_themes/commons/share", $share); ?>
+				theme_view("commons/share", $share); ?>
 
 				<?php if (!empty($komentar)) : ?>
 					<div class="comment-page">

@@ -39,4 +39,4 @@
 		</div>
 	</div>
 <?php endforeach; ?>
-<?php $this->load->view("$folder_themes/commons/pagination"); ?>
+<?php theme_view("commons/pagination"); ?>

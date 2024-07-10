@@ -4,14 +4,14 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <?php $this->load->view("$folder_themes/commons/meta"); ?>
+    <?php theme_view("commons/meta"); ?>
 </head>
 <body>
 	<div id="palanta">
 	<?php if (!empty($judul_kategori)): ?>
-		<?php $this->load->view("$folder_themes/partials/category"); ?>
+		<?php theme_view("partials/category"); ?>
 	<?php else: ?>
-	<?php $this->load->view("$folder_themes/partials/header"); ?>
+	<?php theme_view("partials/header"); ?>
 		<div class="container-custom">
 			<div class="introhome">
 				<?php if(IS_PREMIUM) : ?>
@@ -36,21 +36,21 @@
 			<div class="container-custom">
 				<div class="row-custom mlr-min-20">
 					<div class="pageleft">
-					<?php $this->load->view("$folder_themes/partials/slider"); ?>
+					<?php theme_view("partials/slider"); ?>
 					<?php if($headline) : ?>
-						<?php $this->load->view("$folder_themes/partials/headline"); ?>
+						<?php theme_view("partials/headline"); ?>
 					<?php endif; ?>
-					<?php $this->load->view("$folder_themes/partials/artikel_frontend"); ?>
+					<?php theme_view("partials/artikel_frontend"); ?>
 					
 					</div>
 					<div class="pageright">
-					<?php $this->load->view("$folder_themes/partials/sidebar"); ?>
+					<?php theme_view("partials/sidebar"); ?>
 					</div>
 				</div>
 			</div>
 		</div>
 	<?php endif; ?>	
-	<?php $this->load->view("$folder_themes/commons/footer"); ?>
+	<?php theme_view("commons/footer"); ?>
 	</div>
 </body>
 </html>
