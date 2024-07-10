@@ -34,10 +34,10 @@
 								<div style="padding: 0 3px;">
 									<?php if ($sosmed_pengurus[$value['id']]): ?>
 										<a href="<?= $sosmed_pengurus[$value['id']] ?>" rel="noopener noreferrer" target="_blank">
-											<img src="<?= base_url("{$folder_themes}/assets/img/sosial_media/{$value['id']}.png") ?>" alt="<?= $value['id'] ?>" width="35px" height="35px"/>
+											<img src="<?= theme_asset("img/sosial_media/{$value['id']}.png") ?>" alt="<?= $value['id'] ?>" width="35px" height="35px"/>
 										</a>
 									<?php else : ?>
-										<img src="<?= base_url("{$folder_themes}/assets/img/sosial_media/{$value['id']}.png") ?>" alt="<?= $value['id'] ?>" width="35px" height="35px"/>
+										<img src="<?= theme_asset("img/sosial_media/{$value['id']}.png") ?>" alt="<?= $value['id'] ?>" width="35px" height="35px"/>
 									<?php endif ?>
 								</div>
 							<?php endforeach ?>
