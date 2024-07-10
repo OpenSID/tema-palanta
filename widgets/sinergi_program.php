@@ -1,6 +1,8 @@
 <?php defined('BASEPATH') || exit('No direct script access allowed'); ?>
 <style>
-#sinergi-program img{max-width:100%;height:auto;}
+#sinergi_program img {
+    max-width: 90%;
+}
 </style>
 <div class="box-def">
 	<div class="head-widget l-flex">
@@ -29,7 +31,7 @@
 					<td>
 						<center>
 							<span style="display: inline-block;">
-								<a href="<?= $sinergi_program[$key]['tautan'] ?>" rel="noopener noreferrer" target="_blank"><img src="<?= $sinergi_program[$key]['gambar_url'] ?>" style="float:left; max-width: 217px; margin:5px;" alt="<?= $sinergi_program[$key]['judul'] ?>" /></a>
+								<a href="<?= $sinergi_program[$key]['tautan'] ?>" rel="noopener noreferrer" target="_blank"><img src="<?= $sinergi_program[$key]['gambar_url'] ?>" style="float:left; margin:5px;" alt="<?= $sinergi_program[$key]['judul'] ?>" /></a>
 							</span>
 						</center>
 					</td>
