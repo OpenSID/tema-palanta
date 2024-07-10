@@ -10,18 +10,12 @@
 	<div class="pagelayout">
 		<?php theme_view("partials/header"); ?>
 		<div class="default-row mt-20">
-			<div class="container-custom">
-				<div class="row-custom mlr-min-20">
-					<div class="pageleft">
-					<?php theme_view("partials/suplemen"); ?>
-					</div>
-					<div class="pageright">
-					<?php theme_view("partials/sidebar"); ?>
-					</div>
-				</div>
+			<div class="container-custom" style="margin-bottom:10px;">
+				<?php theme_view($halaman_peta); ?>
 			</div>
 		</div>
 	</div>	
 	<?php theme_view("commons/footer"); ?>
 </body>
 </html>
+

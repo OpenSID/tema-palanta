@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <link rel="shortcut icon" href="{{ favico_desa() }}"/>
-    <link rel="stylesheet" href="{{ theme_asset('assets/css/style-mt.css') }}" />
+    <link rel="stylesheet" href="{{ theme_asset('css/style-mt.css') }}" />
 </head>
     <body class="bg-404">
         <section class="pd-5vw">

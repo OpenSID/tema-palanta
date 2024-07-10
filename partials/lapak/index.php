@@ -40,7 +40,7 @@
 										<?php if (is_file(LOKASI_PRODUK . $foto[$i])): ?>
 											<img src="<?= base_url(LOKASI_PRODUK . $foto[$i]); ?>" alt="Foto <?= ($i+1); ?>">
 										<?php else: ?>
-											<img src="<?= base_url("$this->theme_folder/$this->theme/images/pengganti.jpg") ?>"/>
+											<img src="<?= theme_asset("images/pengganti.jpg") ?>"/>
 										<?php endif; ?>
 										</div>
 									</div>
@@ -49,7 +49,7 @@
 								<?php endfor; ?>
 							</div>
 						<?php else: ?>
-							<div class="image-slider2"><img src="<?= base_url("$this->theme_folder/$this->theme/images/pengganti.jpg") ?>"/></div>
+							<div class="image-slider2"><img src="<?= theme_asset("images/pengganti.jpg") ?>"/></div>
 						<?php endif; ?>
 						<div class="lapak-detail">
 							<h2><?= $pro->nama; ?></h2>
@@ -77,7 +77,7 @@
 				<?php endforeach; ?>
 			</div>
 			
-			<?php $this->load->view("$folder_themes/commons/pagination"); ?>
+			<?php theme_view("commons/pagination"); ?>
 
 			<div class='modal fade' id="map-modal" tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
 				<div class='modal-dialog'>

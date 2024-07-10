@@ -27,7 +27,7 @@
 								<?php if (is_file(LOKASI_FOTO_ARTIKEL.'sedang_'.$arsip['gambar'])): ?>
 									<img src="<?= base_url(LOKASI_FOTO_ARTIKEL.'sedang_'.$arsip['gambar'])?>"/>
 								<?php else: ?>
-									<img src="<?= base_url("$this->theme_folder/$this->theme/images/pengganti.jpg") ?>"/>
+									<img src="<?= theme_asset("images/pengganti.jpg") ?>"/>
 									<div class="small-image"><img src="<?= gambar_desa($desa['logo']);?>"/></div>
 								<?php endif;?>
 								</div>
@@ -50,7 +50,7 @@
 								<?php if (is_file(LOKASI_FOTO_ARTIKEL.'sedang_'.$arsip['gambar'])): ?>
 									<img src="<?= base_url(LOKASI_FOTO_ARTIKEL.'sedang_'.$arsip['gambar'])?>"/>
 								<?php else: ?>
-									<img src="<?= base_url("$this->theme_folder/$this->theme/images/pengganti.jpg") ?>"/>
+									<img src="<?= theme_asset("images/pengganti.jpg") ?>"/>
 									<div class="small-image"><img src="<?= gambar_desa($desa['logo']);?>"/></div>
 								<?php endif;?>
 								</div>
@@ -73,7 +73,7 @@
 								<?php if (is_file(LOKASI_FOTO_ARTIKEL.'sedang_'.$arsip['gambar'])): ?>
 									<img src="<?= base_url(LOKASI_FOTO_ARTIKEL.'sedang_'.$arsip['gambar'])?>"/>
 								<?php else: ?>
-									<img src="<?= base_url("$this->theme_folder/$this->theme/images/pengganti.jpg") ?>"/>
+									<img src="<?= theme_asset("images/pengganti.jpg") ?>"/>
 									<div class="small-image"><img src="<?= gambar_desa($desa['logo']);?>"/></div>
 								<?php endif;?>
 								</div>

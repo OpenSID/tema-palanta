@@ -15,7 +15,7 @@
 							<?php if ($data->foto): ?>
 								<img src="<?= base_url() . LOKASI_GALERI . $data->foto; ?>" alt="Pembangunan"/>
 							<?php else: ?>
-								<img src="<?= base_url("$this->theme_folder/$this->theme/images/pengganti.jpg") ?>"/>
+								<img src="<?= theme_asset("images/pengganti.jpg") ?>"/>
 								<div class="small-image"><img src="<?= gambar_desa($desa['logo']);?>"/></div>
 							<?php endif;?>
 						</div>

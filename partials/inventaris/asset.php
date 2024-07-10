@@ -42,4 +42,4 @@
         </div>
     </div>
 </div>
-<?php $this->load->view("$folder_themes/partials/inventaris/script") ?>
+<?php theme_view("partials/inventaris/script") ?>

@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') || exit('No direct script access allowed'); ?>
 
 <div class="pagelayout">
-<?php $this->load->view("$folder_themes/partials/header"); ?>
+<?php theme_view("partials/header"); ?>
 <div class="default-row mt-20">
 	<div class="container-custom">
 		<div class="row-custom mlr-min-20">
@@ -30,7 +30,7 @@
 									<?php if (is_file(LOKASI_FOTO_ARTIKEL."kecil_".$data['gambar'])): ?>
 										<img src="<?= AmbilFotoArtikel($data['gambar'],'kecil') ?>">
 									<?php else: ?>
-										<img src="<?= base_url("$this->theme_folder/$this->theme/images/pengganti.jpg") ?>"/>
+										<img src="<?= theme_asset("images/pengganti.jpg") ?>"/>
 										<div class="small-image"><img src="<?= gambar_desa($desa['logo']);?>"/></div>
 									<?php endif;?>
 									</div>
@@ -63,10 +63,10 @@
 					</div>
 					</div>
 				<?php endif;?>
-				<?php $this->load->view("$folder_themes/commons/pagination"); ?>	
+				<?php theme_view("commons/pagination"); ?>	
 			</div>
 			<div class="pageright">
-				<?php $this->load->view("$folder_themes/partials/sidebar"); ?>
+				<?php theme_view("partials/sidebar"); ?>
 			</div>
 		</div>
 	</div>

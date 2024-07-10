@@ -3,16 +3,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<?php $this->load->view("$folder_themes/commons/meta"); ?>
+	<?php theme_view("commons/meta"); ?>
 </head>
 <body onLoad="renderDate()">
 	<a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
 	<div class="container"style="background-color: #f6f6f6;">
 		<header id="header">
-			<?php $this->load->view("$folder_themes/partials/header"); ?>
+			<?php theme_view("partials/header"); ?>
 		</header>
 		<div id="navarea">
-			<?php $this->load->view("$folder_themes/partials/menu_head"); ?>
+			<?php theme_view("partials/menu_head"); ?>
 		</div>
 		<section>
 			<div class="content_middle">

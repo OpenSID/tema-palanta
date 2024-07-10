@@ -103,7 +103,7 @@
 							'link' => site_url('pembangunan/' . $pembangunan->slug),
 							'judul' => $pembangunan->judul,
 						];
-						$this->load->view("$folder_themes/commons/share", $share);
+						theme_view("commons/share", $share);
 
 				?>
 		</div>
@@ -130,5 +130,5 @@
 		});
 	</script>
 <?php else: ?>
-	<?php $this->load->view("$folder_themes/commons/not_found"); ?>
+	<?php theme_view("commons/not_found"); ?>
 <?php endif; ?>

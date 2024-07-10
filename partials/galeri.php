@@ -24,7 +24,7 @@
 			<?php endif ?>
 		<?php endforeach ?>
 	</div>
-	<?php $this->load->view("$folder_themes/commons/pagination"); ?>
+	<?php theme_view("commons/pagination"); ?>
 	
 <?php else: ?>
 	<div class="box-def hoverstyle">
