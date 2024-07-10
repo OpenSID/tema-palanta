@@ -28,8 +28,8 @@
 					?>
 					<td>
 						<center>
-							<span style="display: inline-block; width: 100px">
-								<a href="<?= $sinergi_program[$key]['tautan'] ?>" rel="noopener noreferrer" target="_blank"><img src="<?= $sinergi_program[$key]['gambar_url'] ?>" style="float:left; margin:5px;" alt="<?= $sinergi_program[$key]['judul'] ?>" /></a>
+							<span style="display: inline-block;">
+								<a href="<?= $sinergi_program[$key]['tautan'] ?>" rel="noopener noreferrer" target="_blank"><img src="<?= $sinergi_program[$key]['gambar_url'] ?>" style="float:left; max-width: 217px; margin:5px;" alt="<?= $sinergi_program[$key]['judul'] ?>" /></a>
 							</span>
 						</center>
 					</td>
