@@ -1,6 +1,9 @@
-<div class="single_page_area">
-    <h2 class="post_titile" style="margin-bottom: 10px;">Data <?= $judul ?></h2>
-    <div class="box-body">
+<div class="box-def">
+    <div class="box-def-inner">
+        <div class="c-flex" style="margin:20px 0 20px;text-align:center;width:100%;">
+            <h1>Data <?= $judul ?></h1>
+        </div>
+        
         <div class="table-responsive">
             <table id="inventaris" class="table table-bordered dataTable table-hover">
                 <thead class="bg-gray">
