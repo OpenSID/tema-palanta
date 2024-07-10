@@ -79,4 +79,4 @@
 <script src="<?= base_url("$this->theme_folder/$this->theme/assets/js/jquery.fancybox.min.js"); ?>"></script>
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v3.2&appId=731690645328652&autoLogAppEvents=1"></script>
-<?php $this->load->view('head_tags_front') ?>
+<?= view('admin.layouts.components.token') ?>
