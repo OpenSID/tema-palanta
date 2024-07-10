@@ -30,7 +30,7 @@
 									<?php if (is_file(LOKASI_FOTO_ARTIKEL."kecil_".$data['gambar'])): ?>
 										<img src="<?= AmbilFotoArtikel($data['gambar'],'kecil') ?>">
 									<?php else: ?>
-										<img src="<?= base_url("$this->theme_folder/$this->theme/images/pengganti.jpg") ?>"/>
+										<img src="<?= theme_asset("images/pengganti.jpg") ?>"/>
 										<div class="small-image"><img src="<?= gambar_desa($desa['logo']);?>"/></div>
 									<?php endif;?>
 									</div>

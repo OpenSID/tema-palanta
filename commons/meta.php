@@ -33,12 +33,12 @@
 <link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/bootstrap.min.css'); ?>">
 <link rel='stylesheet' href="<?= base_url('assets/css/font-awesome.min.css'); ?>"/>
 <link rel="stylesheet" href="<?= base_url('assets/css/leaflet.css'); ?>"/>
-<link rel="stylesheet" href="<?= base_url("$this->theme_folder/$this->theme/assets/css/jquery.fancybox.min.css"); ?>">
-<link rel="stylesheet" href="<?= base_url("$this->theme_folder/$this->theme/assets/css/style-min.css"); ?>">
+<link rel="stylesheet" href="<?= theme_asset("css/jquery.fancybox.min.css"); ?>">
+<link rel="stylesheet" href="<?= theme_asset("css/style-min.css"); ?>">
 <link rel="stylesheet" href="<?= base_url('assets/css/mapbox-gl.css'); ?>"/>
 <link rel="stylesheet" href="<?= base_url('assets/css/peta.css'); ?>">
 <link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/dataTables.bootstrap.min.css'); ?>">
-<link rel="stylesheet" href="<?= base_url("$this->theme_folder/$this->theme/assets/css/screen-min.css"); ?>">
+<link rel="stylesheet" href="<?= theme_asset("css/screen-min.css"); ?>">
 
 <?php if(isset($single_artikel)): ?>
 	<meta property="og:title" content="<?= htmlspecialchars($single_artikel["judul"]); ?>"/>
@@ -55,7 +55,7 @@
 <script language='javascript' src="<?= base_url('assets/front/js/jquery.cycle2.min.js'); ?>"></script>
 <script language='javascript' src="<?= base_url('assets/front/js/jquery.cycle2.carousel.js'); ?>"></script>
 <script language='javascript' src="<?= base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
-<script src="<?= base_url("$this->theme_folder/$this->theme/assets/js/flickity.js"); ?>"></script>
+<script src="<?= theme_asset("js/flickity.js"); ?>"></script>
 <script src="<?= base_url('assets/js/leaflet.js'); ?>"></script>
 <script src="<?= base_url('assets/front/js/layout.js'); ?>"></script>
 <script src="<?= base_url('assets/front/js/jquery.colorbox.js'); ?>"></script>
@@ -76,7 +76,7 @@
 <script type="text/javascript">
 	var BASE_URL = "<?= base_url(); ?>";
 </script>
-<script src="<?= base_url("$this->theme_folder/$this->theme/assets/js/jquery.fancybox.min.js"); ?>"></script>
+<script src="<?= theme_asset("js/jquery.fancybox.min.js"); ?>"></script>
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v3.2&appId=731690645328652&autoLogAppEvents=1"></script>
 <?= view('admin.layouts.components.token') ?>

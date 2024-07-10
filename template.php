@@ -18,13 +18,13 @@
 					<?php if($latar_website) : ?>
 						<img src="<?= $latar_website ?>"/>
 					<?php else: ?>
-						<img src="<?= base_url("$this->theme_folder/$this->theme/images/headbg.jpg") ?>"/>
+						<img src="<?= theme_asset("images/headbg.jpg") ?>"/>
 					<?php endif; ?>
 				<?php else: ?>
 					<?php if($latar_website) : ?>
 						<img src="<?= base_url($latar_website); ?>"/>
 					<?php else: ?>
-						<img src="<?= base_url("$this->theme_folder/$this->theme/images/headbg.jpg") ?>"/>
+						<img src="<?= theme_asset("images/headbg.jpg") ?>"/>
 					<?php endif; ?>
 				<?php endif; ?>
 				<div class="introhome-title">
