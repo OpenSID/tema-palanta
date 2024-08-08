@@ -5,7 +5,7 @@
 
 <?php defined('NAMA_DESA') || define('NAMA_DESA', $nama_desa) ?>
 <?php defined('THEME_NAME') || define('THEME_NAME', 'Palanta') ?>
-<?php defined('THEME_VERSION') || define('THEME_VERSION', 'v2407.0.0') ?>
+<?php defined('THEME_VERSION') || define('THEME_VERSION', 'v2408.0.0') ?>
 <?php defined('IS_PREMIUM') || define('IS_PREMIUM', $is_premium) ?>
 <?php $desa_title =  ucwords($this->setting->sebutan_desa) . ' '. $desa['nama_desa'] . ' '. ucwords($this->setting->sebutan_kecamatan) . ' '. $desa['nama_kecamatan'] . ' '. ucwords($this->setting->sebutan_kabupaten) . ' '. $desa['nama_kabupaten']; ?>
 

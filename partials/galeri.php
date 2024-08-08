@@ -11,7 +11,6 @@
 		<?php
 		$jumlah = 0;
 		foreach ($gallery as $album) : ?>
-			<!-- <php if (is_file(LOKASI_GALERI . "sedang_" . $album['gambar'])) : ?> -->
 			<?php if (file_exists(LOKASI_GALERI . "sedang_" . $album['gambar']) || $album['jenis'] == 2) :
 				$gambar = $album['jenis'] == 2 ? $album['gambar'] : AmbilGaleri($album['gambar'], 'kecil');
 				$jumlah++;
