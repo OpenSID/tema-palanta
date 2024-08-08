@@ -1,15 +1,48 @@
 <?php defined('BASEPATH') || exit('No direct script access allowed'); ?>
+<?php $tipe = ucwords($detail['tipe']); ?>
 
 <div class="heading-module l-flex">
 	<div class="heading-module-inner l-flex">
-		<i class="fa fa-group"></i><h1>Data Kelompok</h1>
+		<i class="fa fa-group"></i><h1>Data <?= $tipe ?></h1>
 	</div>
 </div>
-<div class="c-flex" style="margin:20px 0 20px;text-align:center;width:100%;">
-	<div>
-	<h1><?= $detail['nama']; ?></h1>
-	<p style="margin-top:10px;"><?= $detail['keterangan']?></p>
-	</div>
+
+<div style="margin:20px 0 20px;">
+  <h3 style="margin:0 0 10px;">Rinci Data <?= $tipe ?></h3>
+  <div class="table-responsive content">
+    <table class="table table-striped" width="100%">
+      <tbody>
+        <tr>
+          <td width="20%">Nama <?= $tipe ?></td>
+          <td width="1%">:</td>
+          <td><?= $detail['nama'] ?></td>
+          <td width="20%" rowspan="5" style="text-align: center; vertical-align: middle;">
+            <img src="<?= gambar_desa($detail['logo']) ?>" alt="Logo <?= ucwords($detail['tipe']) ?>" class="w-full">
+          </td>
+        </tr>
+        <tr>
+          <td>Kode <?= $tipe ?></td>
+          <td>:</td>
+          <td><?= $detail['kode'] ?></td>
+        </tr>
+        <tr>
+          <td>Kategori <?= $tipe ?></td>
+          <td>:</td>
+          <td><?= $detail['kategori'] ?></td>
+        </tr>
+        <tr>
+          <td>No. SK Pendirian</td>
+          <td>:</td>
+          <td><?= $detail['no_sk_pendirian'] ?></td>
+        </tr>
+		<tr>
+          <td>Keterangan</td>
+          <td>:</td>
+          <td><?= $detail['keterangan'] ?></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <div style="margin:0 0 20px;">

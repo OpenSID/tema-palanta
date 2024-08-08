@@ -1,5 +1,11 @@
 <?php defined('BASEPATH') || exit('No direct script access allowed'); ?>
 
+<style>
+  .emptydata svg {
+    position: sticky !important;
+}
+</style>
+
 <div class="heading-module l-flex">
 	<div class="heading-module-inner l-flex">
 		<i class="fa fa-folder-open"></i><h1>Album Galeri</h1>

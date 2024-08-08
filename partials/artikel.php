@@ -163,10 +163,9 @@
 									</div>
 								</div>
 								<div class="row mb-10 captha">
-									<div class="col-md-3">
-										<a href="#" onclick="document.getElementById('captcha').src = '<?= base_url() . "securimage/securimage_show.php?" ?>' + Math.random(); return false" style="color: #000000;">
-											<img id="captcha" src="<?= base_url('securimage/securimage_show.php') ?>" alt="CAPTCHA Image" />
-										</a>
+									<div class="col-md-3 text-center">
+										<img id="captcha" src="<?= site_url('captcha') ?>" alt="CAPTCHA Image" class="max-w-full h-auto">
+										<button type="button" class="btn btn-primary btn-sm" style="margin-top: 5px;" onclick="document.getElementById('captcha').src = '<?= site_url('captcha') ?>?' + Math.random();">[Ganti Gambar]</button>
 									</div>
 									<div class="col-md-9">
 										<label for="inputName" class="custom-label">Isikan Jawaban Dibawah</label>
