@@ -176,9 +176,8 @@
 								<tr class="captcha">
 									<td>&nbsp;</td>
 									<td>
-										<a href="#" id="b-captcha" onclick="document.getElementById('captcha').src = '<?= base_url() . "securimage/securimage_show.php?" ?>' + Math.random(); return false" style="color: #000000;">
-											<img id="captcha" src="<?= base_url('securimage/securimage_show'); ?>" alt="CAPTCHA Image" />
-										</a>
+										<img id="captcha" src="<?= site_url('captcha') ?>" alt="CAPTCHA Image" class="max-w-full h-auto">
+										<button type="button" class="btn btn-primary btn-sm" onclick="document.getElementById('captcha').src = '<?= site_url('captcha') ?>?' + Math.random();">[Ganti Gambar]</button>
 									</td>
 									<td>&nbsp;&nbsp;&nbsp;</td>
 									<td>
