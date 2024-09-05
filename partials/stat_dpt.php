@@ -4,7 +4,7 @@
 
 	<div class="heading-module l-flex">
 		<div class="heading-module-inner l-flex">
-			<i class="fa fa-pie-chart"></i><h1>Data Statistik</h1>
+			<i class="fa fa-pie-chart"></i><h1><?= $heading ?></h1>
 		</div>
 	</div>
 	<div class="c-flex" style="margin:20px 0 20px;text-align:center;width:100%;">
@@ -16,7 +16,7 @@
 		<thead>
 		<tr>
 			<th class="text-center">No</th>
-			<th class="text-center">Nama Dusun</th>
+			<th class="text-center"><?= ucwords(setting('sebutan_dusun')) ?></th>
 			<th class="text-center">RW</th>
 			<th class="text-center">Jiwa</th>
 			<th class="text-center">L</th>

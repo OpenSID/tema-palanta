@@ -13,7 +13,11 @@
 			<div class="container-custom">
 				<div class="row-custom mlr-min-20">
 					<div class="pageleft">
-					<?php theme_view("partials/subgaleri"); ?>
+					<?php if ($tampil) {
+						theme_view("partials/subgaleri");
+					} else {
+						theme_view("partials/not_found");
+					} ?>
 					</div>
 					<div class="pageright">
 					<?php theme_view("partials/sidebar"); ?>

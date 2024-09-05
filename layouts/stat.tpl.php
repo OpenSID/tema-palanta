@@ -2,10 +2,12 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <?php theme_view("commons/meta"); ?>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<?php theme_view("commons/meta"); ?>
 </head>
+
 <body>
 	<div class="pagelayout">
 		<?php theme_view("partials/header"); ?>
@@ -13,23 +15,30 @@
 			<div class="container-custom">
 				<div class="row-custom mlr-min-20">
 					<div class="pageleft">
-						<?php if ($tipe == 2): ?>
-							<?php theme_view("partials/stat_statistik_sos"); ?>
-						<?php elseif ($tipe == 3): ?>
-							<?php theme_view("partials/stat_wilayah"); ?>
-						<?php elseif ($tipe == 4): ?>
-							<?php theme_view("partials/stat_dpt"); ?>
-						<?php else: ?>
-							<?php theme_view("partials/stat_statistik"); ?>
-						<?php endif; ?>
+
+						<?php if ($tampil) { ?>
+							<?php if ($tipe == 2): ?>
+								<?php theme_view("partials/stat_statistik_sos"); ?>
+							<?php elseif ($tipe == 3): ?>
+								<?php theme_view("partials/stat_wilayah"); ?>
+							<?php elseif ($tipe == 4): ?>
+								<?php theme_view("partials/stat_dpt"); ?>
+							<?php else: ?>
+								<?php theme_view("partials/stat_statistik"); ?>
+							<?php endif; ?>
+						<?php } else { ?>
+							<?php theme_view("partials/not_found"); ?>
+						<?php } ?>
+
 					</div>
 					<div class="pageright">
-					<?php theme_view("partials/sidebar"); ?>
+						<?php theme_view("partials/sidebar"); ?>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>	
+	</div>
 	<?php theme_view("commons/footer"); ?>
 </body>
+
 </html>

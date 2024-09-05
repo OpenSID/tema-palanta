@@ -19,10 +19,14 @@
 							</div>
 						</div>
 						<?php
-							if (preg_match("/halaman_statis/i", $halaman_statis)) {
-							$this->load->view($halaman_statis);
+							if ($tampil) {
+								if (preg_match("/halaman_statis/i", $halaman_statis)) {
+									$this->load->view($halaman_statis);
+								} else {
+									$this->load->view("{$folder_themes}/partials/{$halaman_statis}");
+								}
 							} else {
-							$this->load->view("{$folder_themes}/partials/{$halaman_statis}");
+								$this->load->view("{$folder_themes}/partials/not_found");
 							}
 						?>
 					</div>
