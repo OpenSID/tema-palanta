@@ -167,7 +167,7 @@
 
 <div class="box-body">
 	<div class="c-flex" style="margin:20px 0 20px;text-align:center;width:100%;">
-	<h1>Data Statistik <?=$heading?></h1>
+	<h1><?= $judul ?></h1>
 	</div>
 	
 	<div class="c-flex">
