@@ -279,7 +279,7 @@
     <script type="text/javascript">
     $(document).ready(function() {
 
-        var url = "<?= site_url('first/ajax_peserta_program_bantuan') ?>";
+        var url = "<?= site_url('first/ajax_peserta_program_bantuan') ?>?tahun=<?= $selected_tahun ?? '' ?>';
         table = $('#peserta_program').DataTable({
             'processing': true,
             'serverSide': true,
