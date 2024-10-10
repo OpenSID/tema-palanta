@@ -305,6 +305,19 @@
             }
         });
 
+        $('#tahun').change(function(){
+            const current_url = window.location.href.split('?')[0]
+            window.location.href = `${current_url}?tahun=${$(this).val()}`;
+        })
+        
+        const _chartType = '<?= $default_chart_type  ?? 'pie' ?>';
+        
+        if(_chartType == 'column') {            
+            setTimeout(function(){
+                $('.btn-switch-chart>.button-switch[data-type=column]').click()
+            }, 1000)
+        }
+
     } );
     </script>
 <?php endif ?>
