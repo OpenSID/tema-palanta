@@ -3,7 +3,7 @@
         <div class="c-flex" style="margin:20px 0 20px;text-align:center;width:100%;">
             <h1>Data Inventaris <?= ucwords(setting('sebutan_desa')) ?></h1>
         </div>
-        
+
         <div class="table-responsive">
             <div class="table-responsive">
                 <table class="table table-striped table-bordered" id="inventaris">
