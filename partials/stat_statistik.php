@@ -1,9 +1,12 @@
 <?php defined('BASEPATH') || exit('No direct script access allowed'); ?>
-
+<?php
+    $tipe = $tipe ?? 0;
+?>
 <script type="text/javascript">
     let chart;
     const rawData = Object.values(<?= json_encode($stat) ?>);
     const type = '<?= $tipe == 1 ? 'column' : 'pie' ?>';
+    
     const legend = Boolean(!<?= ($tipe) ?>);
     let categories = [];
     let data = [];
@@ -36,6 +39,8 @@
 
     function switchType() {
         var chartType = chart_penduduk.series[0].type;
+        console.log(chartType);
+        
         chart_penduduk.series[0].update({
             type: (chartType === 'pie') ? 'column' : 'pie'
         });
@@ -303,6 +308,7 @@
         $(document).ready(function() {
 
             var url = "<?= site_url('first/ajax_peserta_program_bantuan') ?>?tahun=<?= $selected_tahun ?? '' ?>";
+            
             table = $('#peserta_program').DataTable({
                 'processing': true,
                 'serverSide': true,
