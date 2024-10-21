@@ -30,20 +30,20 @@
 						<li><a href="<?= site_url(); ?>">Beranda</a></li>
 						<?php foreach (menu_tema() as $data): ?>
 							<li class="<?= count($data['childrens'] ?? []) > 0 ? 'dropdown' : '' ?>" style="font-size:16px !important;">
-								<a href="<?= $data['link'] ?>" class="<?= count($data['childrens'] ?? []) > 0 ? 'dropdown-toggle' : '' ?>" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+								<a href="<?= $data['link_url'] ?>" class="<?= count($data['childrens'] ?? []) > 0 ? 'dropdown-toggle' : '' ?>" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
 									<?= $data['nama'] ?> <?= count($data['childrens'] ?? []) > 0 ? "<span class='caret'></span>" : '' ?>
 								</a>
 								<?php if (count($data['childrens'] ?? []) > 0): ?>
 									<ul class="dropdown-menu" style="background:rgba(0,0,0,0.2);margin-top:10px;padding:15px 20px 8px;font-size:16px !important;">
 										<?php foreach ($data['childrens'] as $submenu): ?>
 											<li class="<?= count($submenu['childrens'] ?? []) > 0 ? 'dropdown-submenu' : '' ?>" style="font-size:16px !important;">
-												<a href="<?= $submenu['link'] ?>" style="font-size:16px !important;" class="<?= count($submenu['childrens'] ?? []) > 0 ? 'dropdown-toggle' : '' ?>" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+												<a href="<?= $submenu['link_url'] ?>" style="font-size:16px !important;" class="<?= count($submenu['childrens'] ?? []) > 0 ? 'dropdown-toggle' : '' ?>" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 													<?= $submenu['nama'] ?> <?= count($submenu['childrens'] ?? []) > 0 ? "<span class='caret'></span>" : '' ?>
 												</a>
 												<?php if (count($submenu['childrens'] ?? []) > 0): ?>
 													<ul class="dropdown-menu" style="background:rgba(0,0,0,0.2);font-size:16px !important;">
 														<?php foreach ($submenu['childrens'] as $subsubmenu): ?>
-															<li><a href="<?= $subsubmenu['link'] ?>" style="font-size:16px !important;"><?= $subsubmenu['nama'] ?></a></li>
+															<li><a href="<?= $subsubmenu['link_url'] ?>" style="font-size:16px !important;"><?= $subsubmenu['nama'] ?></a></li>
 														<?php endforeach; ?>
 													</ul>
 												<?php endif; ?>
