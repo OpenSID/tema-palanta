@@ -41,7 +41,8 @@ gambar_desa($desa['logo']);
             </p>
           </div>
         </div>
-        <p>{!! potong_teks($post['isi'], 250); !!}...</p>
+        <p>{!! potong_teks(html_entity_decode($abstract), 100) !!}{{ strlen($abstract) > 100 ?
+          '...' : '' }}...</p>
         <a href="{{ $url }}">
           <div class="l-flex">
             <div class="artikel-link l-flex"><i class="fa fa-fast-forward c-flex"></i>Selengkapnya...</div>

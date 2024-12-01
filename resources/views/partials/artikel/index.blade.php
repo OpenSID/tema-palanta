@@ -28,7 +28,7 @@
   @foreach ($artikel as $post)
     @include('partials.artikel.list', ['post' => $post])
   @endforeach
-  <div class="pagination space-y-1 flex-wrap w-full">
+  <div class="card-body c-flex text-center">    
     @include('commons.paging', ['paging_page' => $paging_page])
   </div>
 @else
