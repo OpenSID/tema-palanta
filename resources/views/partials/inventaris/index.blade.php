@@ -1,33 +1,41 @@
 @extends('layouts.right-sidebar')
 
 @section('content')
-<div class="content py-1">
-    <div class="box box-danger" style="padding-bottom: 2rem;">
-        <div class="box-header with-border" style="margin-bottom: 15px;">
-            <h class="box-title">Inventaris {{ ucwords(setting('sebutan_desa')) }}</h>
+<div class="box-def">
+    <div class="heading-module l-flex">
+        <div class="heading-module-inner l-flex">
+            <i class="fa fa-edit"></i>
+            <h1>Informasi</h1>
         </div>
+    </div>
+    <div class="box-def-inner">
+        <div class="c-flex" style="margin:20px 0 20px;text-align:center;width:100%;">
+            <h1>Data Inventaris {{ ucwords(setting('sebutan_desa')) }}</h1>
+        </div>
+
         <div class="table-responsive">
-            <table class="table table-striped table-bordered" id="inventaris">
-                <thead class="bg-gray">
-                    <tr>
-                        <th class="text-center" rowspan="3" style="vertical-align: middle;">No</th>
-                        <th class="text-center" rowspan="3" style="vertical-align: middle;">Jenis Barang</th>
-                        <th class="text-center" rowspan="3" style="min-width:350px;vertical-align: middle;">Keterangan</th>
-                        <th class="text-center" colspan="5" style="vertical-align: middle;">Asal barang</th>
-                        <th class="text-center" rowspan="3" style="vertical-align: middle;">Aksi</th>
-                    </tr>
-                    <tr>
-                        <th class="text-center" rowspan="2">Dibeli Sendiri</th>
-                        <th class="text-center" colspan="3">Bantuan</th>
-                        <th class="text-center" style="text-align:center;" rowspan="2">Sumbangan</th>
-                    </tr>
-                    <tr>
-                        <th class="text-center">Pemerintah</th>
-                        <th class="text-center">Provinsi</th>
-                        <th class="text-center">Kabupaten</th>
-                    </tr>
-                </thead>
-                <tbody id="inventaris-tbody">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered" id="inventaris">
+                    <thead class="bg-gray">
+                        <tr>
+                            <th class="text-center" rowspan="3" style="vertical-align: middle;">No</th>
+                            <th class="text-center" rowspan="3" style="vertical-align: middle;">Jenis Barang</th>
+                            <th class="text-center" width="340%" rowspan="3" style="vertical-align: middle;">Keterangan</th>
+                            <th class="text-center" colspan="5" style="vertical-align: middle;">Asal barang</th>
+                            <th class="text-center" rowspan="3" style="vertical-align: middle;">Aksi</th>
+                        </tr>
+                        <tr>
+                            <th class="text-center" rowspan="2">Dibeli Sendiri</th>
+                            <th class="text-center" colspan="3">Bantuan</th>
+                            <th class="text-center" style="text-align:center;" rowspan="2">Sumbangan</th>
+                        </tr>
+                        <tr>
+                            <th class="text-center">Pemerintah</th>
+                            <th class="text-center">Provinsi</th>
+                            <th class="text-center">Kabupaten</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inventaris-tbody">
 
                 </tbody>
                 <tfoot id="inventaris-tfoot">
@@ -41,7 +49,8 @@
                         <th></th>
                     </tr>
                 </tfoot>
-            </table>
+                </table>
+            </div>
         </div>
     </div>
 </div>

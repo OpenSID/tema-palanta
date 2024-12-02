@@ -21,8 +21,7 @@
     </div>    
 
     @include('commons.footer')
-    
-    <script src="{{ theme_asset('js/script.min.js') }}?{{$themeVersion}}"></script>
+        
     <script type="text/javascript">
         function formatRupiah(angka, prefix = 'Rp ') {
             var number_string = angka.toString().replace(/[^,\d]/g, ''),

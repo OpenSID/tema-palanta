@@ -2,120 +2,151 @@
 @include('commons.asset_highcharts')
 
 @section('content')
-<nav role="navigation" aria-label="navigation" class="breadcrumb">
-    <ol>
-        <li><a href="{{ site_url('/') }}">Beranda</a></li>
-        <li aria-current="page">Status IDM</li>
-    </ol>
-</nav>
-
 <h1 class="text-h2">
     Status Indeks Desa Membangun (IDM) {{ $tahun }}
 </h1>
-<section class="content pt-2">
-    <div id="status-error" style="display: none;">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-5 max-w-full">
-            <div class="alert alert-error px-3 py-5 my-3">
-                <p id="error-message"></p>
+<div class="box-def">
+    <div class="box-def-inner">
+        <div class="heading-module l-flex">
+            <div class="heading-module-inner l-flex">
+                <i class="fa fa-cog"></i>
+                <h1>Indek Desa Membangun</h1>
+            </div>
+        </div>
+        <div class="box box-info">
+            <div class="box-body">
+                <div id="status-error" style="display: none;">
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-5 max-w-full">
+                        <div class="alert alert-error px-3 py-5 my-3">
+                            <p id="error-message"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="status-idm" style="display: none;">
+                    <div class="row">
+                        <div class="col-lg-12 col-xs-12">
+                            <div class="row">
+                                <div class="col-lg-3 col-xs-6">
+                                    <div class="idm-box bg-blue l-flex">
+                                        <div>
+                                            <h3 id="skor-saat-ini"></h3>
+                                            <p>SKOR IDM SAAT INI</p>
+                                        </div>
+                                        <i class="fa fa-line-chart"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-xs-6">
+                                    <div class="idm-box bg-yellow l-flex">
+                                        <div>
+                                            <h3 id="status-saat-ini"></h3>
+                                            <p>STATUS IDM</p>
+                                        </div>
+                                        <i class="fa fa-warning"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-xs-6">
+                                    <div class="idm-box bg-red l-flex">
+                                        <div>
+                                            <h3 id="skor-minimal"></h3>
+                                            <p>SKOR IDM MINIMAL</p>
+                                        </div>
+                                        <i class="fa fa-minus-square"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-xs-6">
+                                    <div class="idm-box bg-green l-flex">
+                                        <div>
+                                            <h3 id="target-status"></h3>
+                                            <p>TARGET STATUS</p>
+                                        </div>
+                                        <i class="fa fa-tachometer"></i>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-xs-12" style="margin-bottom:20px;">
+                                    <div class="table-responsive">
+                                        <table class="overflow-auto table-striped table text-sm capitalize">
+                                            <tbody>
+                                                <tr>
+                                                    <th class="horizontal">PROVINSI</th>
+                                                    <td id="nama-provinsi"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="horizontal">KABUPATEN</th>
+                                                    <td id="nama-kabupaten"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="horizontal">
+                                                        {{ strtoupper(setting('sebutan_kecamatan')) }}
+                                                    </th>
+                                                    <td id="nama-kecamatan"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="horizontal">{{ strtoupper(setting('sebutan_desa')) }}
+                                                    </th>
+                                                    <td id="nama-desa"></td>
+                                                </tr>
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-xs-12">
+                            <figure class="highcharts-figure">
+                                <div id="container"></div>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <hr>
+                    </div>
+
+                    <div class="col-md-8">
+                        <figure class="highcharts-figure">
+                            <div id="container"></div>
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered dataTable table-striped table-hover tabel-daftar"
+                                id="tabel-daftar">
+                                <thead class="bg-gray color-palette">
+                                    <tr>
+                                        <th rowspan="2" class="padat">NO</th>
+                                        <th rowspan="2">INDIKATOR IDM</th>
+                                        <th rowspan="2">SKOR</th>
+                                        <th rowspan="2">KETERANGAN</th>
+                                        <th rowspan="2" nowrap>KEGIATAN YANG DAPAT DILAKUKAN</th>
+                                        <th rowspan="2">+NILAI</th>
+                                        <th colspan="6" class="text-center">YANG DAPAT MELAKSANAKAN KEGIATAN</th>
+                                    </tr>
+                                    <tr>
+                                        <th>PUSAT</th>
+                                        <th>PROVINSI</th>
+                                        <th>KABUPATEN</th>
+                                        <th>DESA</th>
+                                        <th>CSR</th>
+                                        <th>LAINNYA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
-
-    <div id="status-idm" style="display: none;">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-5 max-w-full">
-            <div class="rounded overflow-hidden bg-blue-500 relative text-white py-5 px-3 lg:px-4">
-                <div class="flex flex-col">
-                <span class="text-lg lg:text-xl font-bold" id="skor-saat-ini"></span>
-                <span class="text-sm">SKOR IDM SAAT INI</span>
-                </div>
-                <div class="icon absolute right-0 mr-5 text-5xl text-gray-300 text-opacity-30 top-1/2 transform -translate-y-1/2">
-                <i class="ion ion-arrow-graph-up-right"></i>
-                </div>
-            </div>
-            <div class="rounded overflow-hidden bg-yellow-500 relative text-white py-5 px-3 lg:px-4">
-                <div class="flex flex-col">
-                <span class="text-lg lg:text-xl font-bold" id="status-saat-ini"></span>
-                <span class="text-sm">STATUS IDM</span>
-                </div>
-                <div class="icon absolute right-0 mr-5 text-5xl text-gray-300 text-opacity-30 top-1/2 transform -translate-y-1/2">
-                <i class="ion ion-ios-pulse-strong"></i>
-                </div>
-            </div>
-            <div class="rounded overflow-hidden bg-green-500 relative text-white py-5 px-3 lg:px-4">
-                <div class="flex flex-col">
-                <span class="text-lg lg:text-xl font-bold" id="target-status"></span>
-                <span class="text-sm">TARGET STATUS</span>
-                </div>
-                <div class="icon absolute right-0 mr-5 text-5xl text-gray-300 text-opacity-30 top-1/2 transform -translate-y-1/2">
-                <i class="ion ion-stats-bars"></i>
-                </div>
-            </div>
-            <div class="rounded overflow-hidden bg-red-500 relative text-white py-5 px-3 lg:px-4">
-                <div class="flex flex-col">
-                <span class="text-lg lg:text-xl font-bold" id="skor-minimal"></span>
-                <span class="text-sm">SKOR MINIMAL</span>
-                </div>
-                <div class="icon absolute right-0 mr-5 text-5xl text-gray-300 text-opacity-30 top-1/2 transform -translate-y-1/2">
-                <i class="ion ion-ios-pie"></i>
-                </div>
-            </div>
-        </div>
-
-        <div class="flex flex-col lg:flex-row pt-5 justify-between">
-        <div class="table-responsive">
-            <table class="overflow-auto table-striped table text-sm capitalize">
-            <tbody>
-                <tr>
-                <th class="horizontal">PROVINSI</th>
-                <td id="nama-provinsi"></td>
-                </tr>
-                <tr>
-                <th class="horizontal">KABUPATEN</th>
-                <td id="nama-kabupaten"></td>
-                </tr>
-                <tr>
-                <th class="horizontal">{{ strtoupper(setting('sebutan_kecamatan')) }}</th>
-                <td id="nama-kecamatan"></td>
-                </tr>
-                <tr>
-                <th class="horizontal">{{ strtoupper(setting('sebutan_desa')) }}</th>
-                <td id="nama-desa"></td>
-                </tr>
-
-            </table>
-        </div>
-        <figure class="highcharts-figure">
-            <div id="container"></div>
-        </figure>
-        </div>
-
-        <div class="table-responsive text-xs">
-        <table class="table table-bordered table-striped dataTable table-hover" id="tabel-daftar">
-            <thead class="bg-gray color-palette">
-            <tr>
-                <th rowspan="2" class="padat">NO</th>
-                <th rowspan="2">INDIKATOR IDM</th>
-                <th rowspan="2">SKOR</th>
-                <th rowspan="2">KETERANGAN</th>
-                <th rowspan="2" nowrap>KEGIATAN YANG DAPAT DILAKUKAN</th>
-                <th rowspan="2">+NILAI</th>
-                <th colspan="6" class="text-center">YANG DAPAT MELAKSANAKAN KEGIATAN</th>
-            </tr>
-            <tr>
-                <th>PUSAT</th>
-                <th>PROVINSI</th>
-                <th>KABUPATEN</th>
-                <th>DESA</th>
-                <th>CSR</th>
-                <th>LAINNYA</th>
-            </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-        </div>
-    </div>
-</section>
+</div>
 @endsection
 
 @push('scripts')
