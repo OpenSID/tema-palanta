@@ -4,10 +4,10 @@
 <div class="default-row mt-20">
 	<div class="container-custom" style="margin-bottom:10px;">
         <div class="row-custom mlr-min-20">
-            <div class="pageleft">
+            <div class="pageright">
             @include('partials.sidebar')
             </div>
-            <div class="pageright">
+            <div class="pageleft">
             {{-- Content --}}
             @yield('content')
             </div>

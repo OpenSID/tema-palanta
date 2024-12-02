@@ -94,8 +94,7 @@ $alt_slug = PREMIUM ? 'artikel' : 'first';
           <table class="table table-bordered table-striped dataTable table-hover">
             <thead class="bg-gray disabled color-palette">
               <tr>
-                <th colspan="2" style="text-align: left;"><i class="fa fa-comment"></i> {{ $data['owner']['nama'] }}
-                </th>
+                <th colspan="2" style="text-align: left;"><i class="fa fa-comment"></i> {{ $data['owner'] }}</th>
               </tr>
             </thead>
             <tbody>
