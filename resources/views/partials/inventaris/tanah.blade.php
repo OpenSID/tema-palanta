@@ -2,22 +2,31 @@
 @include('admin.layouts.components.asset_numeral')
 
 @section('content')
-<div class="single_page_area">
-    <h2 class="post_titile">Data {{ $judul }}</h2>
-    <div class="box-body">
+<div class="box-def">
+    <div class="heading-module l-flex">
+        <div class="heading-module-inner l-flex">
+            <i class="fa fa-edit"></i>
+            <h1>Informasi</h1>
+        </div>
+    </div>
+    <div class="box-def-inner">
+        <div class="c-flex" style="margin:20px 0 20px;text-align:center;width:100%;">
+            <h1>{{ $judul }}</h1>
+        </div>
+        
         <div class="table-responsive">
             <table id="inventaris" class="table table-bordered dataTable table-hover">
                 <thead class="bg-gray">
                     <tr>
-                        <th class="text-center" >No</th>
-                        <th class="text-center" >Nama Barang</th>
-                        <th class="text-center" >Kode Barang / Nomor Registrasi</th>
-                        <th class="text-center" >Luas (M<sup>2</sup>)</th>
-                        <th class="text-center" >Tahun Pengadaan</th>
-                        <th class="text-center" >Letak/Alamat</th>
-                        <th class="text-center" >Nomor Sertifikat</th>
-                        <th class="text-center" >Asal Usul</th>
-                        <th class="text-center" >Harga (Rp)</th>
+                        <th class="text-center">No</th>
+                        <th class="text-center">Nama Barang</th>
+                        <th class="text-center">Kode Barang / Nomor Registrasi</th>
+                        <th class="text-center">Luas (M<sup>2</sup>)</th>
+                        <th class="text-center">Tahun Pengadaan</th>
+                        <th class="text-center">Letak/Alamat</th>
+                        <th class="text-center">Nomor Sertifikat</th>
+                        <th class="text-center">Asal Usul</th>
+                        <th class="text-center">Harga (Rp)</th>
                     </tr>
                 </thead>
                 <tbody id="inventaris-tbody">
@@ -28,7 +37,7 @@
                         <th colspan="8" class="text-right">Total:</th>
                         <th class="text-right total"></th>
                     </tr>
-                </tfoot>                
+                </tfoot>  
             </table>
         </div>
     </div>

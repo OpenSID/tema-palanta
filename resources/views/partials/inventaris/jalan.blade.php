@@ -2,12 +2,18 @@
 @include('admin.layouts.components.asset_numeral')
 
 @section('content')
-<div class="content py-1">
-    <div class="box box-danger" style="padding-bottom: 2rem;">
-    <div class="box-header with-border" style="margin-bottom: 15px;">
-        <h class="box-title">Inventaris {{ $judul }}</h>
+<div class="box-def">
+    <div class="heading-module l-flex">
+        <div class="heading-module-inner l-flex">
+            <i class="fa fa-edit"></i>
+            <h1>Informasi</h1>
+        </div>
     </div>
-    <div class="box-body">
+    <div class="box-def-inner">
+        <div class="c-flex" style="margin:20px 0 20px;text-align:center;width:100%;">
+            <h1>{{ $judul }}</h1>
+        </div>
+
         <div class="table-responsive">
             <table id="inventaris" class="table table-bordered dataTable table-hover">
                 <thead class="bg-gray">
@@ -29,17 +35,17 @@
                     </tr>
                 </thead>
                 <tbody id="inventaris-tbody">
-                    
-                                        
+
+
                 </tbody>
-                
-                    <tfoot id="inventaris-tfoot">
-                        <tr>
-                            <th colspan="10" class="text-right">Total:</th>
-                            <th class="total"></th>
-                        </tr>
-                    </tfoot>
-                
+
+                <tfoot id="inventaris-tfoot">
+                    <tr>
+                        <th colspan="10" class="text-right">Total:</th>
+                        <th class="total"></th>
+                    </tr>
+                </tfoot>
+
             </table>
         </div>
     </div>
