@@ -18,8 +18,8 @@
 
 
         <div class="c-flex" id="sdgs_desa" style="margin:15px 0;display: none">
-            <div>
-                <p><?= $evaluasi->average ?></p>
+            <div class="text-center">
+                <h3 id="average"></h3>
                 <h3 style="margin:10px 0 0;">Skor SDGs Desa</h3>
             </div>
 
