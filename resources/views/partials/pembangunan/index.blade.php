@@ -2,14 +2,12 @@
 @include('commons.asset_peta')
 
 @section('content')
-<nav role="navigation" aria-label="navigation" class="breadcrumb">
-    <ol>
-        <li><a href="{{ site_url('/') }}">Beranda</a></li>
-        <li aria-current="page">Pembangunan</li>
-    </ol>
-</nav>
-<h1 class="text-h2">Pembangunan</h1>
-<div class="grid grid-cols-1 lg:grid-cols-4 gap-5 py-1" id="pembangunan-list">
+<div class="heading-module l-flex">
+	<div class="heading-module-inner l-flex">
+		<i class="fa fa-gavel"></i><h1>Pembangunan</h1>
+	</div>
+</div>
+<div class="row-custom mlr-min5 pembangunan" id="pembangunan-list">
 </div>
 @endsection
 
@@ -46,50 +44,43 @@
                 pembangunanList.empty();
 
                 if (!pembangunan.length) {
-                    pembangunanList.html('<p class="py-2">Tidak ada pembangunan yang tersedia</p>');
+                    pembangunanList.html(`<div class="box-def hoverstyle">
+                                            <div class="emptydata c-flex">
+                                                <div>
+                                                <svg viewBox="0 0 24 24"><path d="M13 13H11V7H13M11 15H13V17H11M15.73 3H8.27L3 8.27V15.73L8.27 21H15.73L21 15.73V8.27L15.73 3Z" /></svg>
+                                                <p>Mohon maaf, untuk saat ini data belum tersedia...!</p>
+                                                </div>
+                                            </div>
+                                        </div>`);
                     return;
                 }
 
                 pembangunan.forEach(function (item) {
                     var url = SITE_URL + 'pembangunan/' + item.attributes.slug;
-                    var fotoHTML = `<div class="space-y-3">
-                        <img class="h-44 w-full object-cover object-center bg-gray-300 dark:bg-gray-600"
-                            src="${item.attributes.foto}" alt="Foto Pembangunan" />`
-
-                    var buttonMap = '';
-                    if (item.attributes.lat && item.attributes.lng) {
-                        buttonMap = `<button type="button" class="btn btn-secondary text-xs text-center rounded-0" data-bs-toggle="modal"
-                            data-bs-target="#modalLokasi" data-bs-remote="false" title="Lokasi Pembangunan" data-lat="${item.attributes.lat}"
-                            data-lng="${item.attributes.lng}" data-title="Lokasi Pembangunan"><i class="fas fa-map-marker-alt mr-2"></i>
-                            Lokasi</button>`;
-                    }
-
+                    var fotoHTML = `<img src="${item.attributes.foto}" alt="Foto Pembangunan" />`
                     var pembangunanHTML = `
-                        <div class="flex flex-col justify-between space-y-4 this-product">
-                            <div class="space-y-3">
-                                ${fotoHTML}
-                                <div class="space-y-1/2 text-sm flex flex-col detail">
-                                    <h3 class="text-h5">${item.attributes.judul}</h3>
-                                    <div class="inline-flex"><i class="fas fa-calendar-alt mr-2"></i>
-                                        ${item.attributes.tahun_anggaran}
+                            <div class="column-4 box-def">
+                                <a href="${url}">
+                                    <div class="box-def-inner2">
+                                        <div class="image-slider">
+                                            ${fotoHTML}
+                                        </div>
+                                        <div class="l-flex" style="margin-top:10px;">
+                                            <div>
+                                            <h3>${item.attributes.judul}</h3>
+                                            <table width="100%" class="tableagenda">
+                                                <tr>
+                                                    <td>Lokasi</td><td style="width:30px;text-align:center;">:</td><td>${item.attributes.alamat}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Tahun</td><td style="width:30px;text-align:center;">:</td><td>${item.attributes.tahun_anggaran}</td>
+                                                </tr>
+                                            </table>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="font-thin">
-                                        <i class="fas fa-map-marker-alt mr-1"></i>
-                                        ${item.attributes.lokasi}
-                                    </div>
-                                    <p class="text-sm pt-1">
-                                        ${item.attributes.keterangan.length > 100 ? item.attributes.keterangan.substring(0, 100) + '...' : item.attributes.keterangan}
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="group flex items-center space-x-1">
-                                <a href="${url}"
-                                    class="btn btn-primary text-xs text-center rounded-0">Selengkapnya <i class="fas fa-chevron-right ml-1"></i>
                                 </a>
-                                ${buttonMap}
-                            </div>
-                        </div>
-                    `;
+                            </div>`;
 
                     pembangunanList.append(pembangunanHTML);
                 });
