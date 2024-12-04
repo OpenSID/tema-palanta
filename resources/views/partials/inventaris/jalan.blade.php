@@ -55,7 +55,7 @@
 @push('scripts')
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function(event) {
-        const _url =  `{{ ci_route('internal_api.inventaris-kontruksi') }}`
+        const _url =  `{{ ci_route('internal_api.inventaris-jalan') }}`
         const _tbody = document.getElementById('inventaris-tbody')
         const _tfoot = document.getElementById('inventaris-tfoot')
         $.ajax({
