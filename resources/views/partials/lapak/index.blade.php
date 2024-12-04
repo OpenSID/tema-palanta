@@ -216,15 +216,7 @@
                 iconUrl: setting.icon_lapak_peta
             });
 
-            L.marker(posisi, { icon: markerIcon }).addTo(window.pelapak).bindPopup(`
-                <div class="card">
-                    <div class="text-xs">
-                        <div class="py-1 space-y-1/2 text-sm flex flex-col">
-                            ${popupContent}
-                        </div>
-                    </div>
-                </div>
-            `);
+            L.marker(posisi, { icon: markerIcon }).addTo(window.pelapak);
 
             L.control.scale().addTo(window.pelapak);
 
