@@ -1,45 +1,42 @@
 @extends('layouts.full-content')
-@include('commons.asset_peta')
 
 @section('content')
-<nav role="navigation" aria-label="navigation" class="breadcrumb">
-    <ol>
-        <li><a href="<?= site_url() ?>">Beranda</a></li>
-        <li aria-current="page">Lapak</li>
-    </ol>
-</nav>
-<h1 class="text-h2"><i class="fas fa-store mr-1"></i> Lapak</h1>
-<form id="form-cari" class="w-full block py-4">
-    <div class="flex gap-3 lg:w-7/12 flex-col lg:flex-row">
-        <select class="form-input inline-block select2" id="id_kategori" name="id_kategori" style="min-width: 25%">
-            <option selected value="">Semua Kategori</option>
-        </select>
-        <input type="text" id="search" name="search" maxlength="50" class="form-input" placeholder="Cari Produk"
-            style="min-width: 35%">
-        <button type="button" id="btn-cari" class="btn btn-primary flex-shrink-0 text-center">Cari</button>
-        <button type="button" id="btn-semua" class="btn btn-info flex-shrink-0 text-center" style="display: none;">Tampil Semua</button>
-    </div>
-</form>
-
-<div class="grid grid-cols-1 lg:grid-cols-4 gap-5 py-1" id="produk-list">
+<div class="heading-module l-flex">
+	<div class="heading-module-inner l-flex">
+		<i class="fa fa-shopping-basket"></i><h1>Lapak {{ ucwords(setting('sebutan_desa')) }} </h1>
+	</div>
 </div>
+<div class="lapak box-def">
+    <div class="box-def-inner">        
+        <form method="get" class="form-inline text-center" id="form-cari">
+			<div class="row">
+				<div class="col-sm-12">
+					<select class="form-control select2" id="id_kategori" name="id_kategori">
+						<option selected value="">Semua Kategori</option>						
+					</select>
+					<input type="text" id="search" name="keyword" maxlength="50" class="form-control" placeholder="Cari Produk">
+					<button type="button" id="btn-cari" class="btn btn-primary btn-sm">Cari</button>
+                    <button type="button" id="btn-semua" class="btn btn-info btn-sm"
+                    style="display: none;">Tampil Semua</button>					
+				</div>
+			</div>
+		</form>
 
-@include('commons.pagination')
+        <div class="row-custom mlr-min5 mt-20" id="produk-list">
+        </div>
 
-<div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
-    id="modalLokasi" tabindex="-1" aria-modal="true" role="dialog">
-    <div class="modal-dialog relative w-auto pointer-events-none">
-        <div
-            class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
-            <div
-                class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
-                <h5 class="text-h6">Lokasi Penjual</h5>
-                <button type="button" class="btn-close text-black text-sm leading-none focus:outline-none"
-                    data-bs-dismiss="modal" aria-label="Close">
-                    &times;
-                </button>
-            </div>
-            <div class="modal-body p-4">
+        @include('commons.pagination')
+
+        <div class='modal fade' id="modalLokasi" tabindex='-1' role='dialog' aria-labelledby='myModalLabel'
+            aria-hidden='true'>
+            <div class='modal-dialog'>
+                <div class='modal-content'>
+                    <div class='modal-header'>
+                        <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                        <h4 class='modal-title'></h4>
+                    </div>
+                    <div class="modal-body"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -71,65 +68,68 @@
                 produkList.empty();
 
                 if (!produk.length) {
-                    produkList.html('<p class="py-2">Tidak ada produk yang tersedia</p>');
+                    produkList.html(`<div class="box-def hoverstyle">
+                                        <div class="emptydata c-flex">
+                                            <div>
+                                            <svg viewBox="0 0 24 24"><path d="M13 13H11V7H13M11 15H13V17H11M15.73 3H8.27L3 8.27V15.73L8.27 21H15.73L21 15.73V8.27L15.73 3Z" /></svg>
+                                            <p>Mohon maaf, untuk saat ini data belum tersedia...!</p>
+                                            </div>
+                                        </div>
+                                    </div>`);
                     return;
                 }
 
                 produk.forEach(function (item) {
-                    var fotoHTML = '<div class="owl-carousel">';
+                    var fotoHTML = `<div class="carousel js-flickity" data-flickity='{ "autoPlay": false, "cellAlign": "left"}'>`;
                     var fotoList = item.attributes.foto;
 
-                    fotoList.forEach(function (fotoItem) {
-                        fotoHTML += `<div class="item"><img src="${fotoItem}" alt="Foto Produk" class="h-44 w-full object-cover object-center bg-gray-300"></div>`;
+                    fotoList.forEach(function (fotoItem, index) {
+                        fotoHTML += `<div class="carousel-col">
+                                        <div class="item ${index == 0 ? 'active': ''}">
+                                            <div class="image-slider2">                                                
+                                                <img src="${fotoItem}" alt="Foto ${index+1}">                                                
+                                            </div>
+                                        </div>                                    
+                                    </div>`;                                                
                     });
-
                     fotoHTML += '</div>';
-
+                    if(fotoList.length <= 0){
+                        fotoHTML = `<div class="image-slider2"><img src="{{ theme_asset("images/pengganti.jpg")}}"/></div>`;
+                    }
                     var hargaDiskon = formatRupiah(item.attributes.harga_diskon, 'Rp ');
                     var hargaAwal = formatRupiah(item.attributes.harga, 'Rp ');
-                    var viewDiskon = (hargaAwal === hargaDiskon) ? `` : `<s class="text-xs text-red-500">${hargaAwal}</s>`;
+                    var viewDiskon = (hargaAwal === hargaDiskon) ? `` : `<h3 style="text-decoration: line-through red;color:#ff0000;">${hargaAwal}</h3>`;
 
                     var produkHTML = `
-                        <div class="flex flex-col justify-between space-y-4 this-product">
-                            <div class="space-y-3">
+                        <div class="column-4 box-def">
+                            <div class="box-def-inner2">
                                 ${fotoHTML}
-                                <div class="space-y-1/2 text-sm flex flex-col detail">
-                                    <span class="font-heading font-medium">${item.attributes.nama}</span>
-                                    ${viewDiskon}
-                                    <span class="text-lg font-bold">${hargaDiskon} <span class="text-xs font-thin">/ ${item.attributes.satuan}</span></span>
-                                    <p class="text-xs pt-1">${item.attributes.deskripsi}</p>
-                                    <span class="pt-2 text-xs font-bold text-gray-500 dark:text-gray-50">
-                                        <i class="fas fa-award mr-1"></i> ${item.attributes.pelapak.penduduk.nama ?? 'Admin'} <i class="fas fa-check text-xs bg-green-500 h-4 w-4 inline-flex items-center justify-center rounded-full text-white"></i>
-                                    </span>
+                                <div class="lapak-detail">
+                                    <h2>${item.attributes.nama}</h2>                                    
+                                    <div class="c-flex">
+                                        <div>
+                                            ${viewDiskon}
+                                        <h3 style="color:#009a0a;"><b>${hargaDiskon}</b></h3>
+                                        </div>
+                                    </div>
+                                    <p style="margin:10px 0;">${item.attributes.deskripsi}</p>
+                                    <div class="c-flex"><i class="fa fa-user" style="margin:0 5px 0 0;opacity:0.6;"></i><p>${item.attributes.pelapak.penduduk.nama ?? 'Admin'}</p></div>
+                                    <div class="c-flex" style="margin:10px 0 5px;">
+                                        <a style="margin:0 3px;" class="btn btn-sm btn-success" href="${item.attributes.pesan_wa}" rel="noopener noreferrer" target="_blank" title="WhatsApp"><i class="fa fa-whatsapp"></i> Beli</a>                                    
+                                        <a style="margin:0 3px;" class="btn btn-sm btn-primary" data-remote="false" data-toggle="modal" data-target="#modalLokasi" title="Lokasi" data-lat="${item.attributes.pelapak.lat}" data-lng="${item.attributes.pelapak.lng}" data-zoom="${item.attributes.pelapak.zoom}" data-title="Lokasi Pelapak (${item.attributes.pelapak.penduduk.nama})"><i class="fa fa fa-map"></i> Lokasi</a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="group flex items-center space-x-1">
-                                <a href="${item.attributes.pesan_wa}" 
-                                    rel="noopener noreferrer" target="_blank" class="btn btn-primary text-xs text-center">
-                                    <i class="fa fa-shopping-cart mr-1"></i> Beli Sekarang
-                                </a>
-                                <button type="button" class="btn btn-secondary text-xs text-center rounded-0" data-bs-toggle="modal"
-                                    data-bs-target="#modalLokasi" data-bs-remote="false" title="Lokasi" data-lat="${item.attributes.pelapak.lat}"
-                                    data-lng="${item.attributes.pelapak.lng}" data-zoom="${item.attributes.pelapak.zoom}" data-title="Lokasi ${item.attributes.pelapak.penduduk.nama}"><i
-                                        class="fas fa-map-marker-alt mr-1"></i> Lokasi</button>
-                            </div>
-                        </div>
+                        </div>                        
                     `;
 
                     produkList.append(produkHTML);
                 });
-
-                initPagination(data);
-
-                $('.owl-carousel').owlCarousel({
-                    items: 1,
-                    loop: true,
-                    margin: 10,
-                    nav: false,
-                    dots: true,
-                    autoplay: true,
-                    autoplayTimeout: 3000
+                
+                $('.carousel.js-flickity').flickity({
+                    "autoPlay": false, "cellAlign": "left"
                 });
+                initPagination(data);                
             });
         }
 
@@ -216,15 +216,7 @@
                 iconUrl: setting.icon_lapak_peta
             });
 
-            L.marker(posisi, { icon: markerIcon }).addTo(window.pelapak).bindPopup(`
-                <div class="card">
-                    <div class="text-xs">
-                        <div class="py-1 space-y-1/2 text-sm flex flex-col">
-                            ${popupContent}
-                        </div>
-                    </div>
-                </div>
-            `);
+            L.marker(posisi, { icon: markerIcon }).addTo(window.pelapak);
 
             L.control.scale().addTo(window.pelapak);
 
