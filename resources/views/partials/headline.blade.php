@@ -22,7 +22,7 @@
 					<div class="meta-item l-flex"><i class="fa fa-comment"></i><p>{{ $headline->comments->count() }}</p></div>
 					<div class="meta-item l-flex"><i class="fa fa-user"></i><p>{{ $headline->author?->nama ?? '' }}</p></div>
 				</div>
-				<p>{{ potong_teks ($headline['isi'], 120); }}...</p>
+				<p>{!! potong_teks ($headline['isi'], 120); !!}...</p>
 				
 			</div>
 		</div>

@@ -1,11 +1,11 @@
-<div class="shadow  @@bg-color-300 rounded-lg py-2">
-    <div class="p-4 flex flex-row">
-        <div class="text-5xl">
+<div class="col-md-6 col-sm-12">
+    <div class="row @@bg-color" style="padding: 15px; margin:10px 5px;">
+        <div class="col-xs-2 text-center" style="font-size: 40px;">
             <i class="ion @@icon"></i>
         </div>
-        <div class="flex-grow pl-6">
-            <p class="text-gray-400">@@title</p>
-            <p class="text-3xl">@@total</p>
+        <div class="col-xs-10">
+            <p class="text-muted">@@title</p>
+            <p style="font-size: 30px;">@@total</p>
         </div>
-    </div>
+    </div>    
 </div>

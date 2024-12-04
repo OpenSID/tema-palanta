@@ -4,7 +4,7 @@
     <a href="{{ ci_route('data-kesehatan.cetak.unduh') }}{{ '?kuartal=' . $kuartal . '&tahun=' . $_tahun . '&id=' . $id }}" class="btn btn-primary visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block" style="margin: 10px;" target="_blank"><i class="fa fa-download"></i>
         Unduh</a>
 </div>
-<div class="row">
+<div style="padding: 15px;">
     <div class="box box-success">
         <!-- /.box-header -->
         <div class="box-body table-responsive">
