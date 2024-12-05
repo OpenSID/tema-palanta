@@ -1,5 +1,7 @@
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-5 container px-3 lg:px-5">     
-    <div id="chart_0_5"></div>
-    <div id="chart_6_11"></div>
-    <div id="chart_12_23"></div>
+<div style="padding: 15px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+        <div id="chart_0_5" style="width: 30%;"></div>
+        <div id="chart_6_11" style="width: 30%;"></div>
+        <div id="chart_12_23" style="width: 30%;"></div>
+    </div>
 </div>

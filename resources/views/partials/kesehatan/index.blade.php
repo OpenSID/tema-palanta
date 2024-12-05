@@ -1,56 +1,56 @@
-@extends('layouts.full-content')
+@extends('layouts.right-sidebar')
 
 @section('content')
-<div class="box-header">
-    <div class="p-4">
-        <h1 class="text-h3"><?= $title; ?></h1>
-        <form class="form form-horizontal" action="" method="get">   
-            <div class="flex space-x-2">
-            <div class="">
-                <div class="form-group">
-                    <select name="kuartal" id="kuartal" required class="form-control input-sm" title="Pilih salah satu">
-                        @foreach (kuartal2() as $item)
-                        <option value="{{ $item['ke'] }}" @selected($item['ke'] == $kuartal)>
-                            Kuartal ke {{ $item['ke'] }}
-                            ({{ $item['bulan'] }})
-                        </option>
-                        @endforeach
-                    </select>
+<div class="box-def">
+    <div class="box-def-inner">
+        <div class="c-flex" style="margin:20px 0 20px;text-align:center;width:100%;">
+            <h1>{{ $title }}</h1>
+        </div>
+        <form class="form form-horizontal" action="" method="get">
+            <div class="row mb-10" style="margin: 0 30px;">
+                <div style="display: flex; flex-wrap: wrap; justify-content: flex-end;">
+                    <div class="form-group" style="flex: 1;">
+                        <select name="kuartal" id="kuartal" required class="form-control input-sm" style="width: 70%; height: 33px;" title="Pilih salah satu">
+                            @foreach (kuartal2() as $item)
+                            <option value="{{ $item['ke'] }}" @selected($item['ke']==$kuartal)>
+                                Kuartal ke {{ $item['ke'] }}
+                                ({{ $item['bulan'] }})
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <select name="tahun" id="tahun" class="form-control input-sm" style="width: 70%; height: 33px;" title="Pilih salah satu">
+                            @foreach ($dataTahun as $item)
+                            <option value="{{ $item->tahun }}" @selected($item->tahun == $tahun) >{{ $item->tahun }}
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <select name="id_posyandu" id="id_posyandu" class="form-control input-sm" style="width: 70%; height: 33px;" title="Pilih salah satu">
+                            <option value="">Semua</option>
+                            @foreach ($posyandu as $item)
+                            <option value="{{ $item->id }}" @selected($item->id == $idPosyandu)>
+                                {{ $item->nama }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div>
+                    <button type="submit" class="btn btn-info btn-sm" id="cari">
+                        <i class="fa fa-search"></i> Cari
+                    </button>
                 </div>
-            </div>
-            <div class="">
-                <div class="form-group">
-                    <select name="tahun" id="tahun" class="form-control input-sm" title="Pilih salah satu">
-                        @foreach ($dataTahun as $item)
-                        <option value="{{ $item->tahun }}" @selected($item->tahun == $tahun) >{{ $item->tahun }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-            <div class="">
-                <div class="form-group">
-                    <select name="id_posyandu" id="id_posyandu" class="form-control input-sm" title="Pilih salah satu">
-                        <option value="">Semua</option>
-                        @foreach ($posyandu as $item)
-                        <option value="{{ $item->id }}" @selected($item->id == $idPosyandu)>
-                        {{ $item->nama }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <button type="submit" class="btn btn-social btn-info btn-sm" id="cari">
-                    <i class="fa fa-search"></i> Cari
-                </button>
-            </div>
+                </div>                                
             </div>
         </form>
-    </div>
-    <div class="box-body text-sm py-2 space-y-4" id="stunting-list">
+        <div class="box-body text-sm py-2 space-y-4" id="stunting-list"></div>
     </div>
 </div>
 @endsection
-
+@push('styles')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.0/css/ionicons.min.css">
+@endpush
 @push('scripts')
 <script type="text/javascript">
     $(document).ready(function() {		
@@ -84,15 +84,16 @@
                     const chartStuntingUmurData = data.data[0]['attributes']['chartStuntingUmurData']
                     const chartStuntingPosyanduData = data.data[0]['attributes']['chartStuntingPosyanduData']
                     const scorecard = data.data[0]['attributes']['scorecard']
-                    const widgetList = document.createElement('div')
-                    widgetList.className = `grid grid-cols-1 lg:grid-cols-3 gap-5 container px-3 lg:px-5`
+                    const widgetList = document.createElement('div') 
+                    widgetList.className = 'row';
+                    widgetList.style.padding = '10px';
                     stuntingList.appendChild(widgetList)
                     stuntingList.appendChild(stuntingUmurNode)
                     stuntingList.appendChild(posyanduNode)
                     stuntingList.appendChild(scorecardNode)
                     widgets.forEach(element => {                        
-                        widgetList.innerHTML +=
-                            widgetTemplate.replace('@@bg-color', element['bg-color'])
+                        widgetList.innerHTML +=                            
+                            widgetTemplate.replace('@@bg-color', (element['bg-color'] == 'bg-gray' ? 'bg-danger' : element['bg-color']))
                                     .replace('@@icon', element.icon)
                                     .replace('@@title', element.title)
                                     .replace('@@total', element.total)

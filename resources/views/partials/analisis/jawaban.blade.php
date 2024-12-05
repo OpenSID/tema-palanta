@@ -3,27 +3,34 @@
 @include('commons.asset_highcharts')
 
 @section('content')
-    <nav role="navigation" aria-label="navigation" class="breadcrumb">
-        <ol>
-            <li><a href="<?= site_url() ?>">Beranda</a></li>
-            <li aria-current="page">Jawaban Analisis</li>
-        </ol>
-    </nav>
-    <h1 class="text-h2" id="indikator"></h1>
-    <div class="content space-y-5">
-        <div class="ui-layout-center" id="chart" style="padding: 5px;"></div>
-        <table class="table table-responsive table-striped" id="table-jawaban">
-            <thead>
-                <tr>
-                    <th width="5%">No</th>
-                    <th>Jawaban</th>
-                    <th width="5%">Jumlah Responden</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+<div class="heading-module l-flex">
+    <div class="heading-module-inner l-flex">
+        <i class="fa fa-edit"></i>
+        <h1>Analisis</h1>
     </div>
+</div>    
+<div class="c-flex" style="margin:20px 0 20px;">
+    <h1 id="indikator"></h1>
+</div>    
+<div style="width:100%;margin:0 0 20px;">
+	<div id="contentpane">
+		<div class="ui-layout-center" id="chart" style="padding: 5px;"></div>
+		<table class="table table-striped" id="table-jawaban">
+			<thead>
+				<tr>
+					<th width="30">No</th>
+					<th>Jawaban</th>
+					<th>Jumlah Responden</th>
+				</tr>
+			</thead>
+			<tbody>				
+			</tbody>
+		</table>
+		<div class="c-flex">
+			<a href="{{ ci_route('analisis') }} " class="btn btn-primary btn-sm">Kembali Ke Daftar Analisis</a>
+		</div>
+	</div>
+</div>
 @endsection
 
 @push('scripts')

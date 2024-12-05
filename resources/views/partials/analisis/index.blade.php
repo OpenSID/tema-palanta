@@ -2,19 +2,23 @@
 @include('commons.asset_sweetalert')
 
 @section('content')
-    <nav role="navigation" aria-label="navigation" class="breadcrumb">
-        <ol>
-            <li><a href="<?= site_url() ?>">Beranda</a></li>
-            <li aria-current="page">Analisis</li>
-        </ol>
-    </nav>
-    <h1 class="text-h2">Daftar Agregasi Data Analisis Desa</h1>
-    <div class="space-y-1 flex gap-3 items-center">
-        <label for="master" class="block text-sm">Analisis:</label>
-        <select class="form-input inline-block w-auto" id="master" name="master"></select>
+<div class="heading-module l-flex">
+    <div class="heading-module-inner l-flex">
+        <i class="fa fa-edit"></i>
+        <h1>Analisis</h1>
     </div>
-    <div class="table-responsive content py-2">
-        <table>
+</div>
+<div class="c-flex" style="margin:20px 0 20px;">
+    <h1>DAFTAR DATA ANALISIS DESA</h1>
+</div>
+    <div class="row" style="margin-bottom: 20px;">
+        <label class="col-md-3 custom-label">Analisis: </label>
+        <div class="col-md-9">
+            <select class="form-control form-select" id="master" name="master"></select>
+        </div>
+    </div>
+    <div class="table-responsive">
+		<table width="100%" class="table table-striped">        
             <tbody>
                 <tr>
                     <td width="200">Pendataan </td>
