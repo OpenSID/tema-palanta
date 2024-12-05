@@ -76,13 +76,7 @@
   <script type="text/javascript">
     var rawData = {!! $widget_keuangan['data'] !!};
     var year = "{{ $widget_keuangan['tahun_terbaru'] }}";
-    var tipe = "pelaksanaan"
-
-    Highcharts.setOptions({
-      lang: {
-        thousandsSep: '.'
-      }
-    })
+    var tipe = "pelaksanaan"    
 
     function displayChart(tahun, tipe) {
       resetContainer();
@@ -195,7 +189,7 @@
           } else {
             if (!isNaN(subData['anggaran'])) {
               var persentase = parseInt(subData['persen']);
-              console.log(subData);
+              
               persentase = Math.round(persentase);
               $("#grafik-container").append(
                 "<div class='graph-sub' id='graph-sub-" + idx + "'>" + subData['nama'] + "</div><div id='graph-" + idx + "' class='graph'></div>");
