@@ -3,12 +3,11 @@
 @section('content')
 @include('commons.asset_sweetalert')
 
-<nav role="navigation" aria-label="navigation" class="breadcrumb">
-  <ol>
-    <li><a href="{{ site_url() }}">Beranda</a></li>
-    <li aria-current="page" id="nav-tipe"></li>
-  </ol>
-</nav>
+<div class="heading-module l-flex">
+	<div class="heading-module-inner l-flex">
+		<i class="fa fa-group"></i><h1>Data Lembaga</h1>
+	</div>
+</div>
 
 <div id="kelompok-wrapper">
 </div>
@@ -29,51 +28,50 @@
               var detail = data.data.attributes;
               var pengurus = detail.pengurus;
               var tipe = detail.tipe;
-              var gambar_desa = `{{ gambar_desa('${detail.logo}') }}`;
+              var gambar_desa = `{{ gambar_desa('${detail.logo}') }}`;              
 
-              $('#nav-tipe').text(`Data ${tipe}`);
-
-              var detailElemen = `
-              <h1 class="text-h2">Data ${tipe} ${detail.nama}</h1>
-              <h2 class="text-h4">Rinci Data ${tipe}</h2>
-              <div class="table-responsive content">
-                <table class="w-full text-sm">
-                  <tbody>
-                    <tr>
-                      <td width="20%">Nama ${tipe}</td>
-                      <td width="1%">:</td>
-                      <td>${detail.nama}</td>
-                      <td width="20%" rowspan="5" style="text-align: center; vertical-align: middle;">
-                        <img src="${gambar_desa}" alt="Logo ${tipe}" class="w-full">
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Kode ${tipe}</td>
-                      <td>:</td>
-                      <td>${detail.kode}</td>
-                    </tr>
-                    <tr>
-                      <td>Kategori ${tipe}</td>
-                      <td>:</td>
-                      <td>${detail.kategori}</td>
-                    </tr>
-                    <tr>
-                      <td>No. SK Pendirian</td>
-                      <td>:</td>
-                      <td>${detail.no_sk_pendirian}</td>
-                    </tr>
-                    <tr>
-                      <td>Keterangan</td>
-                      <td>:</td>
-                      <td>${detail.keterangan}</td>
-                    </tr>
-                  </tbody>
-                </table>
+              var detailElemen = `<div style="margin:20px 0 20px;">
+                <h3 style="margin:0 0 10px;">Rinci Data ${tipe}</h3>                            
+                <div class="table-responsive content">
+                  <table class="table table-striped">
+                    <tbody>
+                      <tr>
+                        <td width="20%">Nama ${tipe}</td>
+                        <td width="1%">:</td>
+                        <td>${detail.nama}</td>
+                        <td width="20%" rowspan="5" style="text-align: center; vertical-align: middle;">
+                          <img src="${gambar_desa}" alt="Logo ${tipe}" class="w-full">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Kode ${tipe}</td>
+                        <td>:</td>
+                        <td>${detail.kode}</td>
+                      </tr>
+                      <tr>
+                        <td>Kategori ${tipe}</td>
+                        <td>:</td>
+                        <td>${detail.kategori}</td>
+                      </tr>
+                      <tr>
+                        <td>No. SK Pendirian</td>
+                        <td>:</td>
+                        <td>${detail.no_sk_pendirian}</td>
+                      </tr>
+                      <tr>
+                        <td>Keterangan</td>
+                        <td>:</td>
+                        <td>${detail.keterangan}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>  
               </div>`;
 
-              var pengurusElemen = `<h2 class="text-h4">Daftar Pengurus</h2>
-              <div class="table-responsive content">
-                <table class="w-full text-sm">
+              var pengurusElemen = `<div style="margin:0 0 20px;">
+              <h3 style="margin:0 0 10px;">Daftar Pengurus</h3>
+              <div class="table-responsive">
+                <table width="100%" class="table table-striped">
                   <thead>
                     <tr>
                       <th>No</th>
@@ -95,25 +93,28 @@
               });
 
               pengurusElemen += `</tbody>
-                </table>
+                  </table>
+                </div>
               </div>`;
 
               var anggotaElemen = `
-              <h2 class="text-h4">Daftar Anggota</h2>
-              <div class="table-responsive content">
-                <table class="w-full text-sm" id="tabel-data">
-                  <thead>
-                    <tr>
-                      <th>No</th>
-                      <th>No. Anggota</th>
-                      <th>Nama</th>
-                      <th>Alamat</th>
-                      <th>Jenis Kelamin</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  </tbody>
-                </table>
+              <div style="margin:0 0 20px;">
+                <h3 style="margin:0 0 10px;">Daftar Anggota</h3>
+                <div class="table-responsive">
+                  <table width="100%" id="table-anggota" class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th style="width:50px;text-align:center;">No</th>
+                        <th>Nama</th>
+                        <th>No. Anggota</th>
+                        <th>Alamat</th>
+                        <th>L/P</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+                </div>
               </div>`;
 
               $('#kelompok-wrapper').html(detailElemen + pengurusElemen + anggotaElemen);
@@ -127,13 +128,13 @@
           });
 
           const anggotaTable = () => {
-            $('#tabel-data').DataTable({
+            $('#table-anggota').DataTable({
               processing: true,
               serverSide: true,
               autoWidth: false,
               ordering: true,
               ajax: {
-                url: `{{ route('api.kelompok.anggota', ['slug' => $slug]) }}`,
+                url: `{{ route('api.lembaga.anggota', ['slug' => $slug]) }}`,
                 method: 'GET',
                 data: row => ({
                   "page[size]": row.length,
