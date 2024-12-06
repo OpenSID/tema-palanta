@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <div id="palanta">
+    <div id="palanta" class="pagelayout">
         @include('commons.header')
         @yield('layout')
     </div>    
