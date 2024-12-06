@@ -77,8 +77,7 @@
                       <th style="width:50px;text-align:center;">No</th>
                       <th>Nama</th>
                       <th>Jabatan</th>
-                      <th>Alamat</th>
-                      <th>L/P</th>
+                      <th>Alamat</th>                      
                     </tr>
                   </thead>
                   <tbody>`;
@@ -106,8 +105,8 @@
                     <thead>
                       <tr>
                         <th style="width:50px;text-align:center;">No</th>
-                        <th>Nama</th>
                         <th>No. Anggota</th>
+                        <th>Nama</th>                        
                         <th>Alamat</th>
                         <th>L/P</th>
                       </tr>
