@@ -6,16 +6,15 @@
 @endpush
 
 @section('content')
-<nav role="navigation" aria-label="breadcrumb" class="breadcrumb">
-    <ol>
-        <li><a href="{{ site_url() }}">Beranda</a></li>
-        <li aria-current="page">Struktur Organisasi dan Tata Kerja {{ setting('sebutan_pemerintah_desa') }}</li>
-    </ol>
-</nav>
-
-<h1 class="text-h2">Struktur Organisasi dan Tata Kerja {{ setting('sebutan_pemerintah_desa') }}</li></h1>
-
-<div class="grid py-1" id="sotk-list">
+<div class="box-def">
+    <div class="box-def-inner">
+        <div class="c-flex" style="margin:20px 0 20px;text-align:center;width:100%;">
+            <h1>Struktur Organisasi dan Tata Kerja {{ setting('sebutan_pemerintah_desa') }}</h1>
+        </div>
+        <center>
+        <div id="sotk-list"></div>
+        </center>
+    </div>
 </div>
 @endsection
 

@@ -1,45 +1,49 @@
-@extends('layouts.full-content')
+@extends('layouts.right-sidebar')
 @include('commons.asset_sweetalert')
 
 @section('content')
-<nav role="navigation" aria-label="navigation" class="breadcrumb">
-    <ol>
-        <li><a href="{{ site_url() }}">Beranda</a></li>
-        <li aria-current="page">Produk Hukum</li>
-    </ol>
-</nav>
-
-<h1 class="text-h2">Produk Hukum</h1>
-<hr>
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
-    <div class="space-y-2">
-        <label for="owner" class="text-xs lg:text-sm">Tahun</label>
-        <select class="form-control input-sm" id="list_tahun" name="tahun">
-            <option selected="" value="">Semua</option>
-        </select>
-    </div>
-    <div class="space-y-2">
-        <label for="email" class="text-xs lg:text-sm">Kategori</label>
-        <select class="form-control input-sm" id="list_kategori" name="kategori">
-            <option selected="" value="">Semua</option>
-        </select>
+<div class="heading-module l-flex">
+    <div class="heading-module-inner l-flex">
+        <i class="fa fa-edit"></i>
+        <h1>Informasi</h1>
     </div>
 </div>
-<div class="space-y-3 content py-3">
-    <div class="table-responsive content">
-        <table class="table table-striped table-bordered" id="tabelData">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Judul Produk Hukum</th>
-                    <th>Jenis</th>
-                    <th>Tahun</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tfoot></tfoot>
-        </table>
-    </div>
+<div class="box-def">
+	<div class="box-def-inner">
+		<div class="c-flex" style="margin:20px 0 20px;text-align:center;width:100%;">
+			<h1>Produk Hukum</h1>
+		</div>
+	
+		<div class="row">
+			<div class="col-md-6" style="margin-bottom:10px;">
+				<label style="font-size:95%;margin:0;padding:0;line-height:1.2;">Tahun</label>
+				<select class="form-control" id="list_tahun" name="tahun">
+                    <option selected="" value="">Semua</option>
+                </select>
+			</div>
+			<div class="col-md-6" style="margin-bottom:10px;">
+				<label style="font-size:95%;margin:0;padding:0;line-height:1.2;"> Kategori</label>
+				<select class="form-control" id="list_kategori" name="kategori">
+                    <option selected="" value="">Semua</option>
+                </select>
+			</div>
+		</div>
+		
+		<div class="table-responsive">
+			<table class="table table-striped table-bordered customtables" id="tabelData">
+				<thead>
+					<tr>
+						<th><center>No</center></th>
+						<th><center>Judul Produk Hukum</center></th>
+						<th><center>Kategori</center></th>
+						<th><center>Tahun</center></th>
+						<th><center>Aksi</center></th>
+					</tr>
+				</thead>
+                <tbody></tbody>
+			</table>
+		</div>
+	</div>
 </div>
 @endsection
 
@@ -116,8 +120,8 @@
                     data: null,
                     searchable: false,
                     orderable: false,
-                    render: (data, type, row) => {
-                        return `<button class="btn btn-xs btn-primary lihat-dokumen"
+                    render: (data, type, row) => {                        
+                        return `<button class="btn btn-success btn-xs lihat-dokumen"
                                     data-nama="${row.attributes.nama}"
                                     data-file="${row.attributes.satuan}">Lihat</button>`;
                     }

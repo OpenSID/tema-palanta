@@ -1,23 +1,16 @@
 @extends('layouts.full-content')
 
 @section('content')
-<nav role="navigation" aria-label="navigation" class="breadcrumb">
-    <ol>
-        <li><a href="{{ site_url() }}">Beranda</a></li>
-        <li aria-current="page">
-            {{ ucwords(setting('sebutan_pemerintah_desa')) }}
-        </li>
-    </ol>
-</nav>
-<h1 class="text-h2">
-    {{ ucwords(setting('sebutan_pemerintah_desa')) }}
-</h1>
+<div class="heading-module l-flex">
+	<div class="heading-module-inner l-flex">
+		<i class="fa fa-group"></i><h1>{{ ucwords(setting('sebutan_pemerintah_desa')) }}</h1>
+	</div>
+</div>
 
-<div class="grid grid-cols-1 lg:grid-cols-4 gap-5 py-1" id="pemerintah-list">
+<div class="row-custom mlr-min10 pemerintah" id="pemerintah-list">
 </div>
 
 @include('commons.pagination')
-
 @endsection
 
 @push('scripts')
@@ -35,39 +28,51 @@
                 pemerintahList.empty();
 
                 if (!pemerintah.length) {
-                    pemerintahList.html(`<p class="py-2"> ${setting.sebutan_pemerintah_desa} tidak tersedia.</p>`);
+                    pemerintahList.html(`<div class="box-def hoverstyle">
+                            <div class="emptydata c-flex">
+                            <div>
+                                <svg viewBox="0 0 24 24"><path d="M13 13H11V7H13M11 15H13V17H11M15.73 3H8.27L3 8.27V15.73L8.27 21H15.73L21 15.73V8.27L15.73 3Z" /></svg>
+                                <p>Mohon maaf, untuk saat ini data belum tersedia...!</p>
+                            </div>
+                            </div>
+                        </div>`);
                     return;
                 }
 
                 var mediaSosialPlatforms = JSON.parse(setting.media_sosial_pemerintah_desa);
 
                 pemerintah.forEach(function (item) {
-                    var mediaSosial = '';
+                    var mediaSosial = '<div class="c-flex" style="margin:10px 0 0;width:100%;text-align:center;">';
                     var mediaSosialPengurus = item.attributes.media_sosial || {};
 
                     mediaSosialPlatforms.forEach((platform) => {
                         var link = mediaSosialPengurus[platform];
                         mediaSosial += `
-                            <a href="${link}" target="_blank" class="inline-flex items-center justify-center bg-blue-600 h-8 w-8 rounded-full">
+                        <div style="padding: 0 3px;">
+                            <a href="${link}" rel="noopener noreferrer" target="_blank">
                                 <i class="fab fa-lg fa-${platform}" style="color: #fff;"></i>
                             </a>
+                        </div>
                         `;
                     });
+                    mediaSosial += '</div>';
 
                     var pemerintahHTML = `
-                        <div class="space-y-3">
-                            <img class="h-44 w-full object-cover object-center bg-gray-300" src="${item.attributes.foto || ''}" alt="Foto ${item.attributes.nama}" />
-                            <div class="space-y-1 text-sm text-center">
-                                <span class="text-h6">${item.attributes.nama}</span>
-                                <span class="block">${item.attributes.nama_jabatan}</span>
-                                ${item.attributes.pamong_niap ? `<span class="block">${item.attributes.sebutan_nip_desa}: ${item.attributes.pamong_niap}</span>` : ''}
-                                ${item.attributes.kehadiran == 1 ? `
-                                    <span class="btn btn-${item.attributes.status_kehadiran === 'hadir' ? 'primary' : 'danger'} w-auto mx-auto inline-block">
-                                        ${item.attributes.status_kehadiran === 'hadir' ? 'Hadir' : item.attributes.status_kehadiran}
-                                    </span>` : ''}
-                                <div>${mediaSosial}</div>
+                        <div class="column-4 box-def">
+                            <div class="box-def-inner">
+                                <img style="width:100%;height:auto;" src="${item.attributes.foto || ''}" alt="Foto ${item.attributes.nama}"/>
+                                <div class="c-flex" style="margin:10px 0 0;width:100%;text-align:center;">
+                                    <div>
+                                        <h2>${item.attributes.nama}</h2>
+                                        <p>${item.attributes.nama_jabatan}</p>
+                                    </div>
+                                </div>
+                                <div class="c-flex" style="margin:10px 0 0;width:100%;text-align:center;">                                    
+                                    <div class="btn btn-${item.attributes.status_kehadiran === 'hadir' ? 'primary' : 'danger'} btn-sm">${item.attributes.status_kehadiran === 'hadir' ? 'Hadir' : item.attributes.status_kehadiran}</div>                                    
+                                </div>  
+                                ${mediaSosial}                              
                             </div>
-                        </div>
+                        </div>                        
                     `;
 
                     pemerintahList.append(pemerintahHTML);

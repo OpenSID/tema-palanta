@@ -1,30 +1,34 @@
-@extends('layouts.full-content')
+@extends('layouts.right-sidebar')
 @include('commons.asset_sweetalert')
 
 @section('content')
-<div class="content py-1">
-    <div class="box box-danger" style="padding-bottom: 2rem;">
-        <div class="box-header with-border" style="margin-bottom: 20px;">
-            <h3 class="box-title">Informasi Publik</h3>
-        </div>
-        <div class="box-body">
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered" id="tabelData">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Judul Informasi</th>
-                            <th>Tahun</th>
-                            <th>Kategori</th>
-                            <th>Tanggal Upload</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tfoot></tfoot>
-                </table>
-            </div>
-        </div>
+<div class="heading-module l-flex">
+    <div class="heading-module-inner l-flex">
+        <i class="fa fa-edit"></i>
+        <h1>Informasi</h1>
     </div>
+</div>
+<div class="box-def">
+	<div class="box-def-inner">
+		<div class="c-flex" style="margin:20px 0 20px;text-align:center;width:100%;">
+			<h1>Informasi Publik</h1>
+		</div>
+		
+		<div class="table-responsive">
+			<table class="table table-striped table-bordered customtables" id="tabelData">
+				<thead>
+					<tr>
+						<th><center>No</center></th>
+						<th><center>Judul Informasi</center></th>
+						<th><center>Tahun</center></th>
+						<th><center>Kategori</center></th>
+						<th><center>Tanggal</center></th>
+						<th><center>Aksi</center></th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
 </div>
 @endsection
 
@@ -74,7 +78,7 @@
                         return `<button class="btn btn-xs btn-primary lihat-dokumen"
                                     data-nama="${row.attributes.nama}"
                                     data-file="${row.attributes.satuan}">
-                                    Lihat
+                                    Lihat Dokumen
                                 </button>`;
                     }
                 }
