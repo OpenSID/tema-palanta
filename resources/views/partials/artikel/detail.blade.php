@@ -20,7 +20,7 @@ $alt_slug = PREMIUM ? 'artikel' : 'first';
       <h1>{{ $single_artikel["judul"] }}</h1>
       <div class="artikel-meta" style="margin-bottom:10px;">
         <div class="meta-item l-flex"><i class="fa fa-calendar"></i>
-          <p>{{ tgl_indo2($single_artikel['tgl_upload']) }}</p>
+          <p>{{ $single_artikel['tgl_upload_local'] }}</p>
         </div>
         <div class="meta-item l-flex"><i class="fa fa-user"></i>
           <p>{{ $single_artikel['owner'] }}</p>
