@@ -1,26 +1,16 @@
 @extends('layouts.right-sidebar')
 
 @section('content')
-<nav role="navigation" aria-label="navigation" class="breadcrumb">
-	<ol>
-		<li><a href="{{ ci_route('') }}">Beranda</a></li>
-		<li aria-current="page">Arsip Artikel</li>
-	</ol>
-</nav>
-<h1 class="text-h2">Arsip Situs Web</h1>
+<div class="heading-module l-flex">
+	<div class="heading-module-inner l-flex">
+		<i class="fa fa-folder-open"></i><h1>Arsip Konten</h1>
+	</div>
+</div>
+
 <div>
 	<div class="box-body">
 		<div class="table-responsive content">
-			<table id="arsip-artikel" class="w-full text-sm">
-				<thead>
-					<tr>
-						<td width="3%"><b>No.</b></td>
-						<td width="20%"><b>Tanggal Artikel</b></td>
-						<td width="57"><b>Judul Artikel</b></td>
-						<td width="10%"><b>Penulis</b></td>
-						<td width="10%"><b>Dibaca</b></td>
-					</tr>
-				</thead>
+			<table id="arsip-artikel" class="table table-striped">				
 				<tbody>
 
 				</tbody>
@@ -30,7 +20,13 @@
 
 </div>
 @endsection
-
+@push('styles')
+<style>
+#arsip-artikel thead {
+    display: none;
+}
+</style>
+@endpush
 @push('scripts')
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function(event) {
@@ -69,24 +65,19 @@
                 },                
                 {
                     data: "attributes.tgl_upload_local",
-                    name: "tgl_upload"
+                    name: "tgl_upload",
+                    visible: false,
                 },
                 {
                     data: function(data) {
-                        return `<a href="${data.attributes.url_slug}">
-                                    ${data.attributes.judul}
-                                </a>`
+                        return `<a href="${data.attributes.url_slug}"><h3>${data.attributes.judul}</h3></a>
+						Diposting tanggal : ${data.attributes.tgl_upload_local}<br/>
+						Oleh : ${data.attributes.author.nama}`
                     },
+                    class: 'text-wrap',
                     name: "judul",
                     orderable: false
-                },
-                {
-                    data: "attributes.author.nama",
-                    name: "id_user",
-                    defaultContent: '',
-                    searchable: false,
-                    orderable: false
-                },                
+                },                                
                 {
                     data: "attributes.hit",
                     name: "hit",

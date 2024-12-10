@@ -2,19 +2,19 @@
 @include('commons.asset_sweetalert')
 
 @section('content')
-<nav role="navigation" aria-label="navigation" class="breadcrumb">
-    <ol>
-        <li><a href="{{ site_url('/') }}">Beranda</a></li>
-        <li aria-current="page">Suplemen</li>
-    </ol>
-</nav>
+<div class="heading-module l-flex">
+	<div class="heading-module-inner l-flex">
+		<i class="fa fa-group"></i><h1>Data Suplemen</h1>
+	</div>
+</div>
+<div class="l-flex" style="margin:20px 0 10px;text-align:left;width:100%;">
+	<div>
+	<h1 id="judul"></h1>
+	</div>
+</div>
 
-<h1 class="text-h2" id="judul"></h1>
-
-<hr style="margin: 10px 0;">
-<h2 class="text-h4" style="margin-bottom: 10px;">Rincian Data Suplemen</h2>
 <div class="table-responsive content">
-    <table class="w-full text-sm">
+    <table width="100%" class="table tabledefault table-striped">
         <tbody>
             <tr>
                 <td width="20%">Nama Data</td>
@@ -35,21 +35,23 @@
     </table>
 </div>
 
-<h2 class="text-h4" style="margin-bottom: 10px; margin-top: 20px;">Daftar Terdata</h2>
-<div class="table-responsive content">
-    <table class="w-full text-sm" id="tabelData">
-        <thead class="bg-gray disabled color-palette">
-            <tr>
-                <th>No</th>
-                <th>Nama</th>
-                <th>Tempat Lahir</th>
-                <th>Jenis-kelamin</th>
-                <th>Alamat</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
+<div style="margin:20px 0;">
+    <h3 style="margin-bottom:10px;" id="judul-anggota"></h3>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered dataTable table-hover tablesmall-text" id="tabelData">
+            <thead class="bg-gray disabled color-palette">
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Tempat Lahir</th>
+                    <th>Jenis-kelamin</th>
+                    <th>Alamat</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
 </div>
 @endsection
 
@@ -69,7 +71,8 @@
                 return;
             }
 
-            $('#judul').text('Data Suplemen ' + suplemen.attributes.nama);
+            $('#judul').text(suplemen.attributes.nama);
+            $('#judul-anggota').text('Daftar '+suplemen.attributes.nama);
             $('#nama').text(suplemen.attributes.nama);
             $('#sasaran').text(suplemen.attributes.nama_sasaran);
             $('#keterangan').text(suplemen.attributes.keterangan);
