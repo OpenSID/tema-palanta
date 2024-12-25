@@ -1,4 +1,4 @@
-@extends('layouts.full-content')
+@extends('theme::layouts.full-content')
 
 @section('content')
 <div class="heading-module l-flex">
@@ -10,7 +10,7 @@
 <div class="row-custom mlr-min10 pemerintah" id="pemerintah-list">
 </div>
 
-@include('commons.pagination')
+@include('theme::commons.pagination')
 @endsection
 
 @push('scripts')

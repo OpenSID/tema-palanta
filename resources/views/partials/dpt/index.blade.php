@@ -1,5 +1,5 @@
-@extends('layouts.right-sidebar')
-@include('admin.layouts.components.asset_numeral')
+@extends('theme::layouts.right-sidebar')
+@include('theme::admin.layouts.components.asset_numeral')
 
 @section('content')
 <div style="margin:0 0 20px;width:100%;">
@@ -50,7 +50,7 @@
             $.ajax({
                 url: _url,
                 type: 'GET',
-                beforeSend: () => _tbody.innerHTML = `@include('commons.loading')`,
+                beforeSend: () => _tbody.innerHTML = `@include('theme::commons.loading')`,
                 success: (response) => {
                     let _trString = []
                     let _total = {

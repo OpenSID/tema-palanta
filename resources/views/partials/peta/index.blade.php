@@ -1,4 +1,4 @@
-@extends('layouts.full-content')
+@extends('theme::layouts.full-content')
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/leaflet-measure-path.css') }}">
@@ -41,7 +41,7 @@
     <div>
         <div class="row">
             <div class="col-md-12">
-                @include('commons.loading')
+                @include('theme::commons.loading')
                 <div id="map">
                     <div class="leaflet-top leaflet-left">
                         <div id="isi_popup" style="visibility: hidden;">
@@ -108,7 +108,7 @@
 @endsection
 
 @push('scripts')
-    @include('commons.asset_highcharts')
+    @include('theme::commons.asset_highcharts')
     <script src="{{ theme_asset('js/helper.js') }}"></script>
     <script>
         (function() {

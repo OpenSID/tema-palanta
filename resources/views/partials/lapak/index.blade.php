@@ -1,4 +1,4 @@
-@extends('layouts.full-content')
+@extends('theme::layouts.full-content')
 
 @section('content')
 <div class="heading-module l-flex">
@@ -25,7 +25,7 @@
         <div class="row-custom mlr-min5 mt-20" id="produk-list">
         </div>
 
-        @include('commons.pagination')
+        @include('theme::commons.pagination')
 
         <div class='modal fade' id="modalLokasi" tabindex='-1' role='dialog' aria-labelledby='myModalLabel'
             aria-hidden='true'>

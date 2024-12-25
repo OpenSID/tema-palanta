@@ -1,7 +1,7 @@
 <div class="container-custom">
 	<div class="box-def">
 		<div class="bottom-area">
-            @includeWhen($transparansi, 'partials.apbdesa', $transparansi)			
+            @includeWhen($transparansi, 'theme::partials.apbdesa', $transparansi)			
 		</div>
 	</div>
 </div>

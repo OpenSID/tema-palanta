@@ -1,4 +1,4 @@
-@extends('template')
+@extends('theme::template')
 
 @section('layout')
 <div class="default-row mt-20">

@@ -1,9 +1,9 @@
-@extends('layouts.'.$layout)
+@extends('theme::layouts.'.$layout)
 @php
 $post = $single_artikel;
 $alt_slug = PREMIUM ? 'artikel' : 'first';
 @endphp
-@include('commons.asset_highcharts')
+@include('theme::commons.asset_highcharts')
 @section('content')
 <div class="box-def hoverstyle">
   <div class="box-def-inner">
@@ -20,7 +20,7 @@ $alt_slug = PREMIUM ? 'artikel' : 'first';
       <h1>{{ $single_artikel["judul"] }}</h1>
       <div class="artikel-meta" style="margin-bottom:10px;">
         <div class="meta-item l-flex"><i class="fa fa-calendar"></i>
-          <p>{{ tgl_indo2($single_artikel['tgl_upload']) }}</p>
+          <p>{{ $single_artikel['tgl_upload_local'] }}</p>
         </div>
         <div class="meta-item l-flex"><i class="fa fa-user"></i>
           <p>{{ $single_artikel['owner'] }}</p>
@@ -81,7 +81,7 @@ $alt_slug = PREMIUM ? 'artikel' : 'first';
           {!! $single_artikel["isi"] !!}
         </div>
       </div>      
-      @include('commons.sticky_share', [
+      @include('theme::commons.sticky_share', [
 					'link' => $single_artikel['url_slug'],
 					'judul' => htmlspecialchars($single_artikel["judul"])
 				])

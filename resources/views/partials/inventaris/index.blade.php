@@ -1,4 +1,4 @@
-@extends('layouts.right-sidebar')
+@extends('theme::layouts.right-sidebar')
 
 @section('content')
 <div class="box-def">
@@ -65,7 +65,7 @@
         $.ajax({
             url: _url,
             type: 'GET',
-            beforeSend: () => _tbody.innerHTML = `@include('commons.loading')`,
+            beforeSend: () => _tbody.innerHTML = `@include('theme::commons.loading')`,
             success: (response) => {
                 let _trString = []
                 let _total = {'pribadi' : 0, 'pemerintah' : 0, 'provinsi' : 0, 'kabupaten' : 0, 'sumbangan' : 0}

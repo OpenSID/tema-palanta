@@ -7,20 +7,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @include('commons.meta')
-    @include('commons.source_css')
-    @include('commons.source_js')
+    @include('theme::commons.meta')
+    @include('theme::commons.source_css')
+    @include('theme::commons.source_js')
     <title>@yield('title')</title>
     @stack('styles')
 </head>
 
 <body>
     <div id="palanta" class="pagelayout">
-        @include('commons.header')
+        @include('theme::commons.header')
         @yield('layout')
     </div>    
 
-    @include('commons.footer')
+    @include('theme::commons.footer')
         
     <script type="text/javascript">
         function formatRupiah(angka, prefix = 'Rp ') {

@@ -1,6 +1,6 @@
-@extends('layouts.right-sidebar')
-@include('commons.asset_sweetalert')
-@include('commons.asset_highcharts')
+@extends('theme::layouts.right-sidebar')
+@include('theme::commons.asset_sweetalert')
+@include('theme::commons.asset_highcharts')
 
 @section('content')
 <div class="heading-module l-flex">
