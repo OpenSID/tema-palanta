@@ -1,5 +1,5 @@
 @extends('theme::layouts.right-sidebar')
-@include('theme::admin.layouts.components.asset_numeral')
+@include('core::admin.layouts.components.asset_numeral')
 
 @section('content')
 <div class="box-def">
