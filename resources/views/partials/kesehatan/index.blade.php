@@ -1,4 +1,4 @@
-@extends('layouts.right-sidebar')
+@extends('theme::layouts.right-sidebar')
 
 @section('content')
 <div class="box-def">
@@ -57,12 +57,12 @@
         const tahun = document.getElementById('tahun').value
         const kuartal = document.getElementById('kuartal').value
         const idPosyandu = document.getElementById('id_posyandu').value
-        const widgetTemplate = `@include('partials.kesehatan.widget_item')`
+        const widgetTemplate = `@include('theme::partials.kesehatan.widget_item')`
         const templateStunting = document.createElement('template')
-        templateStunting.innerHTML = `@include('partials.kesehatan.chart_stunting_umur')`
+        templateStunting.innerHTML = `@include('theme::partials.kesehatan.chart_stunting_umur')`
         const stuntingUmurNode = templateStunting.content.firstElementChild
         const templatePosyandu = document.createElement('template')
-        templatePosyandu.innerHTML = `@include('partials.kesehatan.chart_stunting_posyandu')`
+        templatePosyandu.innerHTML = `@include('theme::partials.kesehatan.chart_stunting_posyandu')`
         const posyanduNode = templatePosyandu.content.firstElementChild
         const scorecardNode = document.createElement('div')
         const loadStunting = function (tahun, kuartal, idPosyandu) {
@@ -72,7 +72,7 @@
                 data: {'tahun' : tahun, 'kuartal': kuartal, 'idPosyandu': idPosyandu}, 
                 type: "GET",
                 beforeSend: function() {
-                    stuntingList.innerHTML = `@include('commons.loading')`
+                    stuntingList.innerHTML = `@include('theme::commons.loading')`
                 },
                 dataType: 'json',
                 data: {

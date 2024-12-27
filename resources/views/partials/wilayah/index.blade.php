@@ -1,4 +1,4 @@
-@extends('layouts.right-sidebar')
+@extends('theme::layouts.right-sidebar')
 
 @section('content')
 <div style="margin:0 0 20px;width:100%;">

@@ -1,9 +1,9 @@
-@extends('layouts.'.$layout)
+@extends('theme::layouts.'.$layout)
 @php
 $post = $single_artikel;
 $alt_slug = PREMIUM ? 'artikel' : 'first';
 @endphp
-@include('commons.asset_highcharts')
+@include('theme::commons.asset_highcharts')
 @section('content')
 <div class="box-def hoverstyle">
   <div class="box-def-inner">
@@ -81,7 +81,7 @@ $alt_slug = PREMIUM ? 'artikel' : 'first';
           {!! $single_artikel["isi"] !!}
         </div>
       </div>      
-      @include('commons.sticky_share', [
+      @include('theme::commons.sticky_share', [
 					'link' => $single_artikel['url_slug'],
 					'judul' => htmlspecialchars($single_artikel["judul"])
 				])

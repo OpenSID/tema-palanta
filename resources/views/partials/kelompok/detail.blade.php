@@ -1,7 +1,7 @@
-@extends('layouts.right-sidebar')
+@extends('theme::layouts.right-sidebar')
 
 @section('content')
-@include('commons.asset_sweetalert')
+@include('theme::commons.asset_sweetalert')
 
 <div class="heading-module l-flex">
 	<div class="heading-module-inner l-flex">
@@ -22,7 +22,7 @@
           method: 'GET',
             beforeSend: function() {
               const kelompokList = document.getElementById('kelompok-wrapper');
-              kelompokList.innerHTML = `@include('commons.loading')`;
+              kelompokList.innerHTML = `@include('theme::commons.loading')`;
             },
             success: function (data) {
               var detail = data.data.attributes;

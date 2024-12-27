@@ -1,4 +1,4 @@
-@extends('layouts.full-content')
+@extends('theme::layouts.full-content')
 
 @section('content')
 <div class="box-def">

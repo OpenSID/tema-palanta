@@ -1,4 +1,4 @@
-@extends('template')
+@extends('theme::template')
 
 @section('layout')
 <div class="default-row mt-20">
@@ -9,7 +9,7 @@
             @yield('content')
             </div>
             <div class="pageright">
-            @include('partials.sidebar')            
+            @include('theme::partials.sidebar')            
             </div>        
         </div>
     </div>

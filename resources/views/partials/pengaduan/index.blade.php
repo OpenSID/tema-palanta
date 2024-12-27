@@ -1,4 +1,4 @@
-@extends('layouts.full-content')
+@extends('theme::layouts.full-content')
 @section('content')
 <div class="heading-module l-flex">
 	<div class="heading-module-inner l-flex">
@@ -30,9 +30,9 @@
 			</div>
 		
 		<!-- Notifikasi -->
-		@include('commons.notifikasi')
+		@include('theme::commons.notifikasi')
 		<div id="pengaduan-list"></div>
-        @include('commons.pagination')			
+        @include('theme::commons.pagination')			
 	</div>
 </div>
 <!-- BEGIN DETAIL TICKET -->
@@ -67,7 +67,7 @@
 				<form action="{{ $form_action }}" method="POST" enctype="multipart/form-data">
 					<div class="modal-body">
 						<!-- Notifikasi -->			
-						@include('commons.notifikasi')
+						@include('theme::commons.notifikasi')
 						@php $data = 	session('data', []) @endphp
 						<div class="form-group">
 							<input name="nik" type="text" maxlength="16" class="form-control" placeholder="NIK" value="{{ $data['nik'] }}">
@@ -184,7 +184,7 @@
 				type: "GET",
 				beforeSend: function(){
 					const pengaduanList = document.getElementById('pengaduan-list');
-					pengaduanList.innerHTML = `@include('commons.loading')`;
+					pengaduanList.innerHTML = `@include('theme::commons.loading')`;
 				},
 				dataType: 'json',
 				data: {

@@ -1,4 +1,4 @@
-@extends('layouts.right-sidebar')
+@extends('theme::layouts.right-sidebar')
 
 @section('content')
 <div class="heading-module l-flex">
@@ -16,7 +16,7 @@
 @endif
 <div>
 	<div class="row-custom mlr-min10" id="galeri-list"></div>
-	@include('commons.pagination')
+	@include('theme::commons.pagination')
 </div>
 @endsection
 

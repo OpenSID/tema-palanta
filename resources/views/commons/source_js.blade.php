@@ -3,7 +3,7 @@
 <script language='javascript' src="{{ asset('front/js/jquery.cycle2.min.js') }}"></script>
 <script language='javascript' src="{{ asset('front/js/jquery.cycle2.carousel.js') }}"></script>
 <script language='javascript' src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
-@include('commons.asset_highcharts')
+@include('theme::commons.asset_highcharts')
 <script src="{{ theme_asset('js/flickity.js') }}"></script>
 <script src="{{ asset('js/leaflet.js') }}"></script>
 <script src="{{ asset('front/js/layout.js') }}"></script>
@@ -17,7 +17,7 @@
 <script src="{{ theme_asset('js/jquery.fancybox.min.js') }}"></script>
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v3.2&appId=731690645328652&autoLogAppEvents=1"></script>
-@include('admin.layouts.components.token')
+@include('core::admin.layouts.components.token')
 <script>
     var BASE_URL = '{{ base_url() }}';
     var SITE_URL = '{{ ci_route("") }}';

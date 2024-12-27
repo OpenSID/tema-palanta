@@ -51,7 +51,7 @@ $bg_header = $latar_website;
 			<ul class="menuweb">
 				<li class="bghome" style="margin-left:-10px;padding:0 15px;font-size:140%;"><a href="{{ ci_route('') }}"><i class="fa fa-home"></i></a></li>
 				@foreach(menu_tema() as $data)
-					@include('commons.sub_menu', ['data' => $data])
+					@include('theme::commons.sub_menu', ['data' => $data])
 				@endforeach
 			</ul>
 		</nav>
@@ -82,7 +82,7 @@ $bg_header = $latar_website;
 </div>
 <div id="openmenu" class="menupanel">
 	<div class="menupanel-inner">
-		@include("commons.mobile_menu")
+		@include("theme::commons.mobile_menu")
 		<a href="javascript:void(0)" onclick="menuClose()">
 		<div class="close-menu c-flex">
 			<svg viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
