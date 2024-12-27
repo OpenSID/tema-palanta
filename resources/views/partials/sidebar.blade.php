@@ -6,7 +6,7 @@
         ];
       @endphp      
       @if ($widget["jenis_widget"] == 1)        
-        @includeIf("widgets.{$widget['isi']}", $judul_widget)
+        @includeIf("theme::widgets.{$widget['isi']}", $judul_widget)
       @elseif($widget['jenis_widget'] == 2)
         {{-- TODO: KONVERSI TEMA, PERBAIKI WIDGET YANG DIAMBIL DARI FOLDER DESA --}}
         @includeIf("../../{$widget['isi']}", $judul_widget)
