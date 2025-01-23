@@ -95,9 +95,8 @@ $bg_header = $latar_website;
   <div class="introhome">
     <img
       src="{{ $bg_header }}">
-    <div class="introhome-title">
-      <p>Selamat Datang di SID Nagari Nanjungwangi</p>
-    </div>
+    {{-- <div class="introhome-title">
+    </div> --}}
   </div>
 </div>
 @endif
