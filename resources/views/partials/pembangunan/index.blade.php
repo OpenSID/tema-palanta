@@ -9,9 +9,9 @@
 </div>
 <div class="row-custom mlr-min5 pembangunan" id="pembangunan-list">
 </div>
+@include('theme::commons.pagination')
 @endsection
 
-@include('theme::commons.pagination')
 
 <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
     id="modalLokasi" tabindex="-1" aria-modal="true" role="dialog">
