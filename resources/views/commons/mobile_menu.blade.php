@@ -38,13 +38,18 @@
 									<ul class="dropdown-menu" style="background:rgba(0,0,0,0.2);margin-top:10px;padding:15px 20px 8px;font-size:16px !important;">
 										@foreach ($data['childrens'] as $submenu)
 											<li class="{{ count($submenu['childrens'] ?? []) > 0 ? 'dropdown-submenu' : '' }}" style="font-size:16px !important;">
-												<a href="{{ $submenu['link_url'] }}" style="font-size:16px !important;" class="{{ count($submenu['childrens'] ?? []) > 0 ? 'dropdown-toggle' : '' }}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+												<a href="{{ $submenu['link_url'] }}" style="font-size:16px !important;" class="{{ count($submenu['childrens'] ?? []) > 0 ? 'dropdown-toggle' : '' }}" 
+												{{ count($submenu['childrens'] ?? []) > 0 ? 'data-toggle="dropdown"' : '' }} role="button" aria-haspopup="true" aria-expanded="false">
 													{{ $submenu['nama'] }} {!! count($submenu['childrens'] ?? []) > 0 ? "<span class='caret'></span>" : '' !!}
 												</a>
 												@if (count($submenu['childrens'] ?? []) > 0)
 													<ul class="dropdown-menu" style="background:rgba(0,0,0,0.2);font-size:16px !important;">
 														@foreach ($submenu['childrens'] as $subsubmenu)
-															<li><a href="{{ $subsubmenu['link_url'] }}" style="font-size:16px !important;">{{ $subsubmenu['nama'] }}</a></li>
+															<li>
+																<a href="{{ $subsubmenu['link_url'] }}" onclick="window.location.href='{{ $subsubmenu['link_url'] }}'; return false;" style="font-size:16px !important;">
+																	{{ $subsubmenu['nama'] }}
+																</a>
+															</li>
 														@endforeach
 													</ul>
 												@endif
