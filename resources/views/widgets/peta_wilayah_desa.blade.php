@@ -8,7 +8,7 @@
 	<div class="widgetbox widget-cat">
 		<div id="map_wilayah" class="maphome"></div>
 		<div class="c-flex" style="margin-top:5px;">
-		<a href="https://www.openstreetmap.org/#map=15/{{$data_config['lat']."/".$data_config['lng'] }}" class="btn btn-primary btn-sm" rel="noopener noreferrer" target="_blank">Buka Peta</a>
+		<a href="https://www.openstreetmap.org/#map=15/{{$desa['lat']."/".$desa['lng'] }}" class="btn btn-primary btn-sm" rel="noopener noreferrer" target="_blank">Buka Peta</a>
 		</div>
 	</div>
 </div>
@@ -16,13 +16,14 @@
 
 <script>
 	//Jika posisi kantor desa belum ada, maka posisi peta akan menampilkan seluruh Indonesia
-	@if (!empty($data_config['lat']) && !empty($data_config['lng']))
-		var posisi = [{{$data_config['lat'].",".$data_config['lng'] }}];
-		var zoom = {{$data_config['zoom'] ?: 10}};
+	@if (!empty($desa['lat']) && !empty($desa['lng']))
+		var posisi = [{{$desa['lat'].",".$desa['lng'] }}];
+		var zoom = {{$desa['zoom'] ?: 10}};
 	@else
 		var posisi = [-1.0546279422758742,116.71875000000001];
 		var zoom = 10;
 	@endif
+	
 	//Style polygon
 	var style_polygon = {
 		stroke: true,
@@ -35,12 +36,12 @@
 	var wilayah_desa = L.map('map_wilayah').setView(posisi, zoom);
 
 	//Menampilkan BaseLayers Peta
-	var baseLayers = getBaseLayers(wilayah_desa, '{{ $setting->mapbox_key');
+	var baseLayers = getBaseLayers(wilayah_desa, '{{ $setting->mapbox_key }}');
 
 	L.control.layers(baseLayers, null, {position: 'topright', collapsed: true}).addTo(wilayah_desa);
 
-	@if (!empty($data_config['path']))
-		var polygon_desa = {{ $data_config['path'];
+	@if (!empty($desa['path']))
+		var polygon_desa = {{ $desa['path'] }}
 		var kantor_desa = L.polygon(polygon_desa, style_polygon).bindTooltip("Wilayah Desa").addTo(wilayah_desa);
 		wilayah_desa.fitBounds(kantor_desa.getBounds());
 	@endif
