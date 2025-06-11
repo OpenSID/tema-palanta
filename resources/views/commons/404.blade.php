@@ -51,7 +51,7 @@
 </style>
 @endpush
 <main class="w-11/12 md:w-9/12 lg:w-7/12 mx-auto px-3 space-y-5 min-h-screen mb-5 flex flex-col items-center justify-center text-center text-gray-700 container">
-    <div class="error_page_content">
+    <div class="error_page_content container">
         <h1>404</h1>
         <h3>{{ $judulPesan ?: 'Menu Tidak terdaftar' }}</h3>
         <p class="wow fadeInLeftBig">{!! $isiPesan ?: "Silakan tambah menu terlebih dahulu.<br>Anda bisa melihat panduan membuat menu di link <a href='https://panduan.opendesa.id/opensid/halaman-administrasi/admin-web/menu' target='_blank'>Panduan</a>" !!}</p>
