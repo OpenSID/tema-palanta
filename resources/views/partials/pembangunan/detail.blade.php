@@ -1,7 +1,7 @@
 @extends('theme::layouts.full-content')
 @include('theme::commons.asset_peta')
-
 @section('content')
+<div id="printableArea">
 <div class="single_category wow fadeInDown">
 	<h2> <span class="bold_line"><span></span></span> <span class="solid_line"></span> <span class="title_text">Detail Pembangunan</span></h2>
 </div>
@@ -40,6 +40,7 @@
             
         </div>
     </div>
+</div>
 </div>
 @endsection
 

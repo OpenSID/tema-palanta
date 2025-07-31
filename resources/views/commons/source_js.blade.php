@@ -34,3 +34,11 @@
         }
     });
 </script>
+<script>
+function printDiv(divId) {
+    // Ambil konten yang ingin dicetak
+    var printContents = document.getElementById(divId).innerHTML;
+    // Buka jendela baru
+    var printWindow = window.print();
+}
+</script>

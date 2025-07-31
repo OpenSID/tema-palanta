@@ -7,3 +7,16 @@
 <link rel="stylesheet" href="{{ asset('css/peta.css') }}">
 <link rel="stylesheet" href="{{ asset('bootstrap/css/dataTables.bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ theme_asset('css/screen-min.css') }}">
+<style>
+@media print {
+    .relative,
+    .headerweb-area,
+    .footerweb-inner,
+    .footerweb,
+    .bottom-area,
+    #block-share,
+    .no-print {
+        display: none !important;
+    }
+}
+</style>
