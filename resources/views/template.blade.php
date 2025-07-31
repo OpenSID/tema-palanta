@@ -1,5 +1,5 @@
 @php
-    $themeVersion = 'v2409.0.0';  
+    $themeVersion = 'v2508.0.0';  
 @endphp
 <!DOCTYPE html>
 <html lang="id">
