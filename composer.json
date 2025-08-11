@@ -12,10 +12,5 @@
             "name": "Dafris",
             "email": "dafrissusandra@gmail.com"
         }
-    ],
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2404.x-dev"
-        }
-    }
+    ]
 }
