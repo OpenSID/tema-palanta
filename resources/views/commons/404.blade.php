@@ -5,11 +5,11 @@
     .error_page_content {
         width: 100%;
         text-align: center;
-        padding-bottom: 45px;
+        padding: 45px 0px;
     }
 
     .error_page_content h1 {
-        font-size: 180px;
+        font-size: 40px;
         font-weight: 700;
         margin: 0;
         color: #007976;
@@ -50,10 +50,10 @@
     }
 </style>
 @endpush
-<main class="w-11/12 md:w-9/12 lg:w-7/12 mx-auto px-3 space-y-5 min-h-screen mb-5 flex flex-col items-center justify-center text-center text-gray-700 container">
+<main class="w-11/12 md:w-9/12 lg:w-7/12 mx-auto px-3 space-y-5 flex flex-col items-center justify-center text-center text-gray-700 container">
     <div class="error_page_content container">
-        <h1>404</h1>
-        <h3>{{ $judulPesan ?: 'Menu Tidak terdaftar' }}</h3>
-        <p class="wow fadeInLeftBig">{!! $isiPesan ?: "Silakan tambah menu terlebih dahulu.<br>Anda bisa melihat panduan membuat menu di link <a href='https://panduan.opendesa.id/opensid/halaman-administrasi/admin-web/menu' target='_blank'>Panduan</a>" !!}</p>
+        <h1>PEMBERITAHUAN</h1>
+        <h3>{{ $judulPesan ?: 'Menu Belum Aktif' }}</h3>
+        <p class="wow fadeInLeftBig">{!! $isiPesan ?: "Ikut Panduan berikut untuk mengaktifkan Menu Dinamis <br> <a href='https://panduan.opendesa.id/opensid/halaman-administrasi/admin-web/menu' target='_blank'>Link Panduan</a>" !!}</p>
     </div>
 </main>
