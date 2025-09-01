@@ -1,7 +1,7 @@
 @php 
   defined('NAMA_DESA') || define('NAMA_DESA', $nama_desa);
   defined('THEME_NAME') || define('THEME_NAME', 'Palanta');
-  defined('THEME_VERSION') || define('THEME_VERSION', 'v2411.0.0');
+  defined('THEME_VERSION') || define('THEME_VERSION', 'v2509.0.0');
   $nama_desa = ucwords($setting->sebutan_desa) .' '.ucwords($desa['nama_desa']);
   $title = preg_replace("/[^A-Za-z0-9- ]/", '', trim(str_replace('-', ' ', get_dynamic_title_page_from_path())));
   $suffix = setting('website_title')
