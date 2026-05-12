@@ -134,8 +134,8 @@
               autoWidth: false,
               ordering: true,
               ajax: {
-                url: `{{ route('api.lembaga.anggota', ['slug' => $slug]) }}`,
-                method: 'GET',
+                url: `{{ route('api.' . $tipe . '.anggota', ['slug' => $slug]) }}`,
+                method: 'POST',
                 data: row => ({
                   "page[size]": row.length,
                   "page[number]": (row.start / row.length) + 1,
@@ -158,7 +158,7 @@
               columns: [
                 { data: null, searchable: false, orderable: false },
                 { data: 'no_anggota', name: 'no_anggota', render: (data, type, row) => row.attributes.no_anggota },
-                { data: 'nama', name: 'nama', className: 'text-wrap', render: (data, type, row) => row.attributes.anggota.nama },
+                { data: 'nama', name: 'nama', className: 'text-wrap', render: (data, type, row) => row.attributes.nama_penduduk },
                 { data: 'alamat', name: 'alamat', render: (data, type, row) => row.attributes.alamat_lengkap },
                 { data: 'jenis_kelamin', name: 'jenis_kelamin', render: (data, type, row) => row.attributes.sex },
               ],

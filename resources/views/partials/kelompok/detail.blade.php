@@ -29,7 +29,6 @@
               var pengurus = detail.pengurus;
               var tipe = detail.tipe;
               var gambar_desa = `{{ gambar_desa('${detail.logo}') }}`;     
-                       
               var detailElemen = `<div style="margin:20px 0 20px;">
                 <h3 style="margin:0 0 10px;">Rinci Data ${tipe}</h3>                            
                 <div class="table-responsive content">
@@ -135,8 +134,8 @@
               autoWidth: false,
               ordering: true,
               ajax: {
-                url: `{{ route('api.kelompok.anggota', ['slug' => $slug]) }}`,
-                method: 'GET',
+                url: `{{ route('api.' . $tipe . '.anggota', ['slug' => $slug]) }}`,
+                method: 'POST',
                 data: row => ({
                   "page[size]": row.length,
                   "page[number]": (row.start / row.length) + 1,
@@ -159,8 +158,7 @@
               columns: [
                 { data: null, searchable: false, orderable: false },
                 { data: 'no_anggota', name: 'no_anggota', render: (data, type, row) => row.attributes.no_anggota },
-                { data: 'nama', name: 'nama', className: 'text-wrap', render: (data, type, row) => row.attributes.anggota.nama },
-                { data: 'alamat', name: 'alamat', render: (data, type, row) => row.attributes.alamat_lengkap },
+                { data: 'alamat', name: 'alamat', render: (data, type, row) => row.attributes.nama_penduduk },
                 { data: 'jenis_kelamin', name: 'jenis_kelamin', render: (data, type, row) => row.attributes.sex },
               ],
               drawCallback: function(settings) {
