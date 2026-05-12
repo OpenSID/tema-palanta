@@ -136,7 +136,7 @@
               ordering: true,
               ajax: {
                 url: `{{ route('api.kelompok.anggota', ['slug' => $slug]) }}`,
-                method: 'GET',
+                method: 'POST',
                 data: row => ({
                   "page[size]": row.length,
                   "page[number]": (row.start / row.length) + 1,

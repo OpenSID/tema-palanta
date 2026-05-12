@@ -90,7 +90,7 @@
                 ordering: true,
                 ajax: {
                     url: routeSuplemenAnggota,
-                    method: 'GET',
+                    method: 'POST',
                     data: row => ({
                         "page[size]": row.length,
                         "page[number]": (row.start / row.length) + 1,

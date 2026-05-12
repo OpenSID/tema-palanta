@@ -96,7 +96,7 @@
                 searching: false,
                 ajax: {
                     url: routeApiIndikator,
-                    method: 'GET',
+                    method: 'POST',
                     data: row => ({
                         "filter[id_master]": $('#master').val(),
                         "page[size]": row.length,
