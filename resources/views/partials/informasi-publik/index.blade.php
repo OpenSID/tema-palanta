@@ -44,7 +44,7 @@
             ordering: true,
             ajax: {
                 url: route,
-                method: 'GET',
+                method: 'POST',
                 data: row => ({
                     "page[size]": row.length,
                     "page[number]": (row.start / row.length) + 1,

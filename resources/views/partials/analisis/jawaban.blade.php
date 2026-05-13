@@ -53,7 +53,7 @@
             searching: false,
             ajax: {
                 url: '{{ route('api.analisis.jawaban') }}',
-                method: 'GET',
+                method: 'POST',
                 data: row => ({
                     ...@json($params),
                     "page[size]": row.length,
