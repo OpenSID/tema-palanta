@@ -37,7 +37,7 @@
             ordering: true,            
             ajax: {
                 url: `{{ ci_route('internal_api.arsip') }}`,
-                method: 'get',
+                method: 'POST',
                 data: function(row) {                    
                     return {
                         "page[size]": row.length,
