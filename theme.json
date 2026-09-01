@@ -4,6 +4,8 @@
     "thumbnail": "https://raw.githubusercontent.com/OpenSID/tema-palanta/v2501.0.2/assets/thumbnail/preview-1.jpg",
     "price": "Rp. 0",
     "version": "2501.0.2",
-    "min_core": "2610.0.0",
-    "max_core": ""
+    "package": "tema-palanta",
+    "require": {
+        "opensid-core": ">=2610.0.0"
+    }
 }
